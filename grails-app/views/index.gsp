@@ -110,48 +110,40 @@
     <div id="container">
   <!--Pestaña 1 activa por defecto-->
   <input id="tab-1" type="radio" name="tab-group" checked="checked" />
-  <label for="tab-1">Pestaña 1</label>
+  <label for="tab-1">Talleres</label>
   <!--Pestaña 2 inactiva por defecto-->
   <input id="tab-2" type="radio" name="tab-group" />
-  <label for="tab-2">Pestaña 2</label>
+  <label for="tab-2">Alumnos</label>
   <!--Pestaña 3 inactiva por defecto-->
   <input id="tab-3" type="radio" name="tab-group" />
-  <label for="tab-3">Pestaña 3</label>
+  <label for="tab-3">Profesores</label>
   <input id="tab-3" type="radio" name="tab-group" />
 
   <!--Contenido a mostrar/ocultar-->
   <div id="content">
    <!--Contenido de la Pestaña 1-->
    <div id="content-1">
-    <p class="left"><img src="http://ximg.es/160x120" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum sit reprehenderit iusto harum minima. Assumenda, accusamus, perspiciatis inventore tempora qui pariatur quisquam? Deleniti, placeat ea nostrum officiis obcaecati temporibus quod. Ullam, in, adipisci autem at fugit ab tempore enim ratione nesciunt alias corporis vitae quo quod nostrum itaque vero iure?</p>
-    <p class="left last"><img src="http://ximg.es/160x120" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, id blanditiis deserunt in molestiae excepturi incidunt molestias dolor sunt dolore obcaecati non repellat mollitia error placeat est exercitationem sit voluptates iure autem saepe voluptas harum unde perferendis modi provident labore voluptatum. Repudiandae, aspernatur sit harum quod vero quos sequi voluptas!</p>
-   </div>
+    <g:render template="/index/talleres" />
+    </div>
    <!--Contenido de la Pestaña 2-->
    <div id="content-2">
+      <g:render template="/index/alumnos" />
     <p class="column-left"><img src="http://ximg.es/200x150" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, est, nisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>
     <p class="column-right"><img src="http://ximg.es/200x150" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, molestiae, officia repellendus quasi cumque dolor eius deserunt possimus aliquid neque nam assumenda veniam soluta enim commodi aperiam reprehenderit quia incidunt.</p>
    
    </div>
    <!--Contenido de la Pestaña 3-->
    <div id="content-3">
- 
+  <g:render template="/index/profesores" />
 			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
-
 			
-		
 				<h2>Available Controllers:</h2>
 				<ul>
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
 					</g:each>
 				</ul>
-		
-   </div>
-   
+                                
   </div>
  </div>
    
