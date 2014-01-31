@@ -21,7 +21,7 @@
 </head>
 <body>
   <div id="grailsLogo" role="banner">
-    <a href="#"><img src="${resource(dir: 'images', file: 'salias.jpg')}" alt="Grails" width="100" height="100"/></a>
+    <a href="${createLink(uri: '/')}"><img src="${resource(dir: 'images', file: 'banner.jpg')}" alt="Grails" width="1000" height="150"/></a>
    
   </div>
  <div id="buscador" >

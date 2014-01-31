@@ -97,7 +97,8 @@ img {
 
 #grailsLogo a {
 	display: inline-block;
-	margin: 1em;
+	margin: 1em 1em 1em 3em;
+        text-align: center;
 }
 
 .content {
@@ -640,7 +641,7 @@ a.skip {
 #content {
  background: #f1f1f1; /* Fondo del contenido */
  border-radius: 0 .25em .25em .25em;
- min-height: 50em; /* 20emAlto del contenido */
+ min-height: 40em; /* 20emAlto del contenido */
  position: relative;
  width: 100%;
  z-index: 5;

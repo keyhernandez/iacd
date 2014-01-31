@@ -11,5 +11,6 @@
         <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Asignar Profesor a Taller</a></li>
          <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Registrar Asistencia</a></li>
         <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Registrar pago a profesor</a></li>
+        <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Ver Profesores</a></li>
       </ul>
     </section>
