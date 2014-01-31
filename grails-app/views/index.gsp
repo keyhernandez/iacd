@@ -124,13 +124,12 @@
    <!--Contenido de la Pestaña 1-->
    <div id="content-1">
     <g:render template="/index/talleres" />
-      <p class="left"><img src="${resource(dir: 'images', file: 'copa_aletas.jpg')}" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum sit reprehenderit iusto harum minima. Assumenda, accusamus, perspiciatis inventore tempora qui pariatur quisquam? Deleniti, placeat ea nostrum officiis obcaecati temporibus quod. Ullam, in, adipisci autem at fugit ab tempore enim ratione nesciunt alias corporis vitae quo quod nostrum itaque vero iure?</p>
-    
+     
     </div>
    <!--Contenido de la Pestaña 2-->
    <div id="content-2">
       <g:render template="/index/alumnos" />
-    <p class="column-left"><img src="http://localhost:8080/LosSalias/web-app/images/copa_aletas.jpg" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, est, nisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>
+    <p class="column-left"><img src="${resource(dir: 'images', file: 'salias.jpg')}" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, est, nisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>
     <p class="column-right"><img src="http://ximg.es/200x150" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, molestiae, officia repellendus quasi cumque dolor eius deserunt possimus aliquid neque nam assumenda veniam soluta enim commodi aperiam reprehenderit quia incidunt.</p>
    
    </div>
