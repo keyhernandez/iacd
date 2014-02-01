@@ -3,10 +3,10 @@ package salias
 class Horario {
 Date horaInicio
 Date horaFin
-List asistencias1
-List clases
-static hasMany = [asistencias1:Asistencia, clases1:Clase]
- static belongsTo = [salon:Salon,taller:Taller]
+
+List clases1
+static hasMany = [ clases1:Clase]
+ static belongsTo = [salon:Salon]
     static constraints = {
     }
     

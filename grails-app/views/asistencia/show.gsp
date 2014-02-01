@@ -23,20 +23,20 @@
 			</g:if>
 			<ol class="property-list asistencia">
 			
+				<g:if test="${asistenciaInstance?.clase}">
+				<li class="fieldcontain">
+					<span id="clase-label" class="property-label"><g:message code="asistencia.clase.label" default="Clase" /></span>
+					
+						<span class="property-value" aria-labelledby="clase-label"><g:link controller="clase" action="show" id="${asistenciaInstance?.clase?.id}">${asistenciaInstance?.clase?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${asistenciaInstance?.fecha}">
 				<li class="fieldcontain">
 					<span id="fecha-label" class="property-label"><g:message code="asistencia.fecha.label" default="Fecha" /></span>
 					
 						<span class="property-value" aria-labelledby="fecha-label"><g:formatDate date="${asistenciaInstance?.fecha}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${asistenciaInstance?.horario}">
-				<li class="fieldcontain">
-					<span id="horario-label" class="property-label"><g:message code="asistencia.horario.label" default="Horario" /></span>
-					
-						<span class="property-value" aria-labelledby="horario-label"><g:link controller="horario" action="show" id="${asistenciaInstance?.horario?.id}">${asistenciaInstance?.horario?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

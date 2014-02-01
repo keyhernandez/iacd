@@ -2,23 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: horarioInstance, field: 'asistencias1', 'error')} ">
-	<label for="asistencias1">
-		<g:message code="horario.asistencias1.label" default="Asistencias1" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${horarioInstance?.asistencias1?}" var="a">
-    <li><g:link controller="asistencia" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="asistencia" action="create" params="['horario.id': horarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'asistencia.label', default: 'Asistencia')])}</g:link>
-</li>
-</ul>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: horarioInstance, field: 'clases1', 'error')} ">
 	<label for="clases1">
 		<g:message code="horario.clases1.label" default="Clases1" />
@@ -42,9 +25,8 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="horaFin" precision="day"  value="${horarioInstance?.horaFin}"  />
-       
 </div>
- 
+
 <div class="fieldcontain ${hasErrors(bean: horarioInstance, field: 'horaInicio', 'error')} required">
 	<label for="horaInicio">
 		<g:message code="horario.horaInicio.label" default="Hora Inicio" />
@@ -59,13 +41,5 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="salon" name="salon.id" from="${salias.Salon.list()}" optionKey="id" required="" value="${horarioInstance?.salon?.id}" class="many-to-one"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: horarioInstance, field: 'taller', 'error')} required">
-	<label for="taller">
-		<g:message code="horario.taller.label" default="Taller" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="taller" name="taller.id" from="${salias.Taller.list()}" optionKey="id" required="" value="${horarioInstance?.taller?.id}" class="many-to-one"/>
 </div>
 

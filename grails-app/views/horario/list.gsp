@@ -30,8 +30,6 @@
 					
 						<th><g:message code="horario.salon.label" default="Salon" /></th>
 					
-						<th><g:message code="horario.taller.label" default="Taller" /></th>
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -43,8 +41,6 @@
 						<td><g:formatDate date="${horarioInstance.horaInicio}" /></td>
 					
 						<td>${fieldValue(bean: horarioInstance, field: "salon")}</td>
-					
-						<td>${fieldValue(bean: horarioInstance, field: "taller")}</td>
 					
 					</tr>
 				</g:each>

@@ -18,25 +18,28 @@
     <script type="text/javascript" src="${resource(dir: 'js', file: 'myScripts.js')}"></script>
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.js')}"></script>
   <g:layoutHead/>
-   <sec:ifNotLoggedIn>
-    <g:link style="color: blue; font-size:0.9em;" controller='login' action='auth' >Login</g:link>
-  </sec:ifNotLoggedIn>
-  <sec:ifLoggedIn>  
-    <g:link style="color: blue; font-size:0.9em;" controller='logout' action='index' >Logout</g:link> 
-  </sec:ifLoggedIn>
+
 
   <r:layoutResources />
 </head>
 <body>
   <div id="grailsLogo" role="banner">
-    <a href="${createLink(uri: '/')}"><img src="${resource(dir: 'images', file: 'banner.jpg')}" alt="Grails" width="1000" height="150"/></a>
-   
+    <sec:ifNotLoggedIn>
+      <section >
+      <a id="buttonLogin" href="${createLink(controller:'login',action:'auth')}">Login</a>    
+    </sec:ifNotLoggedIn>
+    <sec:ifLoggedIn>  
+       <a id="buttonLogin" href="${createLink(controller:'logout',action:'index')}">Logout</a>
+    </sec:ifLoggedIn>
+    </section>
+    <a href="${createLink(uri: '/')}"><img src="${resource(dir: 'images', file: 'banner.jpg')}" alt="Grails" width="1000" height="140"/></a>
+
   </div>
- <div id="buscador" >
+  <div id="buscador" >
     <g:form controller="persona" action="search" class="navbar-search pull-right">
-  <g:textField name="q" value="" class="search-query" placeholder="Buscar Persona"/>
-</g:form>
-      </div>
+      <g:textField name="q" value="" class="search-query" placeholder="Buscar Persona"/>
+    </g:form>
+  </div>
 <g:layoutBody/>
 <div class="footer" role="contentinfo"></div>
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
