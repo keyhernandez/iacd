@@ -11,8 +11,8 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="alumnoList"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="alumnoCreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="list" action="profesorList"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="profesorCreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="edit-persona" class="content scaffold-edit" role="main">
@@ -35,10 +35,10 @@
 			    <g:hiddenField name="id" value="${personaInstance?.id}" />
 			    <g:hiddenField name="version" value="${personaInstance?.version}" />
 			    <fieldset class="form" id="${elementToReplace}">
-			        <g:render template="alumnoForm"/>
+			        <g:render template="profesorForm"/>
 			    </fieldset>
 			    <fieldset class="buttons">
-			        <g:actionSubmit class="save" action="alumnoUpdate" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+			        <g:actionSubmit class="save" action="profesorUpdate" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 			        <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 			    </fieldset>
 			</g:form>

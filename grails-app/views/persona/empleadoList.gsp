@@ -12,7 +12,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="alumnoCreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="empleadoCreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-persona" class="content scaffold-list" role="main">
@@ -40,7 +40,7 @@
 				<g:each in="${personaInstanceList}" status="i" var="personaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="alumnoShow" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "cedula")}</g:link></td>
+						<td><g:link action="empleadoShow" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "cedula")}</g:link></td>
 					
 						<td>${fieldValue(bean: personaInstance, field: "correo")}</td>
 					

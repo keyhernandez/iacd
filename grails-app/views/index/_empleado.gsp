@@ -7,8 +7,8 @@
  <section id="nav1">
      
       <ul>
-        <li><a class="list" href="${createLink(controller:'Persona',action:'createEmployee')}">Agregar Empleados</a></li>
-        <li><a class="list" href="${createLink(controller:'Taller',action:'index')}">Consultar Empleados</a></li>
+        <li><a class="list" href="${createLink(controller:'Persona',action:'empleadoCreate')}">Registrar Empleados</a></li>
+        <li><a class="list" href="${createLink(controller:'Persona',action:'empleadoList')}">Consultar Empleados</a></li>
         
       </ul>
     </section>

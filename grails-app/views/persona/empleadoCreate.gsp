@@ -11,7 +11,7 @@
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="alumnoList"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                <li><g:link class="list" action="empleadoList"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
                 </ul>
             </div>
             <div id="create-persona" class="content scaffold-create" role="main">
@@ -30,12 +30,12 @@
             <g:set value="createForm" var="formId"/>
             <%-- the element id to refresh the page wit the ajax response --%>
             <g:set value="elementToReplace" var="elementToReplace"/>
-            <g:form action="alumnoSave" name="${formId}">
+            <g:form action="empleadoSave" name="${formId}">
                 <fieldset class="form" id="${elementToReplace}">
-                    <g:render template="alumnoForm"/>
+                    <g:render template="empleadoForm"/>
                 </fieldset>
                 <fieldset class="buttons">
-                    <g:submitButton name="create" class="alumnoSave" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                    <g:submitButton name="create" class="empleadoSave" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
             </g:form>
         </div>

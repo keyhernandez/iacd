@@ -7,11 +7,11 @@
  <section id="nav1">
      
       <ul>
-        <li><a class="list" href="${createLink(controller:'Persona',action:'create')}">Registrar Profesor</a></li>
+        <li><a class="list" href="${createLink(controller:'Persona',action:'profesorCreate')}">Registrar Profesor</a></li>
         <li><a class="list" href="${createLink(controller:'TallerProfesor',action:'create')}">Asignar Profesor a Taller</a></li>
          <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Registrar Asistencia</a></li>
         <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Registrar pago a profesor</a></li>
-        <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Ver Profesores</a></li>
+        <li><a class="list" href="${createLink(controller:'Persona',action:'profesorList')}">Ver Profesores</a></li>
       </ul>
     </section>
                     <h1>Welcome to Grails</h1>
