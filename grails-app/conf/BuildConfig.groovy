@@ -59,6 +59,7 @@ runtime: 'postgresql:postgresql:9.2-1003.jdbc4'
         runtime ":database-migration:1.3.2"
 
         compile ':cache:1.0.1'
-        compile ':searchable-0.6.6' 
+    //    compile ':searchable-0.6.6' 
+        compile ":spring-security-core:1.2.7.3"
     }
 }

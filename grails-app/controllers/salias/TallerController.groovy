@@ -1,7 +1,9 @@
 package salias
 
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.security.access.annotation.Secured
 
+@Secured(['ROLE_ADMIN'])
 class TallerController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
