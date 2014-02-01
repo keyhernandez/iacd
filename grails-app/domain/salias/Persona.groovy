@@ -9,7 +9,6 @@ class Persona {
     String correo
     String tipoPersona
     String cedula
-    String password
     List telefonos
     List asistencias
     List clases

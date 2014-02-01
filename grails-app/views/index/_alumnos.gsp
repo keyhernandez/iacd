@@ -7,11 +7,11 @@
  <section id="nav1">
      
       <ul>
-        <li><a class="list" href="${createLink(controller:'Persona',action:'createAlumno')}">Registrar Alumno</a></li>
+        <li><a class="list" href="${createLink(controller:'Persona',action:'alumnoCreate')}">Registrar Alumno</a></li>
         <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Inscribir Alumno en Taller</a></li>
         <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Registrar Pago</a></li>
          <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Registrar Asistencia</a></li>
-        <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Ver Detalle de Alumno</a></li>
+        <li><a class="list" href="${createLink(controller:'Persona',action:'alumnoList')}">Ver Detalle de Alumno</a></li>
       </ul>
     </section>
                     <p class="column-left"><img src="${resource(dir: 'images', file: 'salias.jpg')}" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, est, nisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>

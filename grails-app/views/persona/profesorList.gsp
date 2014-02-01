@@ -12,7 +12,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="profesorCreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-persona" class="content scaffold-list" role="main">
@@ -34,15 +34,13 @@
 					
 						<g:sortableColumn property="nombre" title="${message(code: 'persona.nombre.label', default: 'Nombre')}" />
 					
-						<g:sortableColumn property="password" title="${message(code: 'persona.password.label', default: 'Password')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${personaInstanceList}" status="i" var="personaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="showAlumno" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "cedula")}</g:link></td>
+						<td><g:link action="profesorShow" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "cedula")}</g:link></td>
 					
 						<td>${fieldValue(bean: personaInstance, field: "correo")}</td>
 					
@@ -51,8 +49,6 @@
 						<td><g:formatDate date="${personaInstance.fechaNac}" /></td>
 					
 						<td>${fieldValue(bean: personaInstance, field: "nombre")}</td>
-					
-						<td>${fieldValue(bean: personaInstance, field: "password")}</td>
 					
 					</tr>
 				</g:each>
