@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list factura">
 			
+				<g:if test="${facturaInstance?.clase2}">
+				<li class="fieldcontain">
+					<span id="clase2-label" class="property-label"><g:message code="factura.clase2.label" default="Clase2" /></span>
+					
+						<span class="property-value" aria-labelledby="clase2-label"><g:link controller="clase" action="show" id="${facturaInstance?.clase2?.id}">${facturaInstance?.clase2?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${facturaInstance?.concepto}">
 				<li class="fieldcontain">
 					<span id="concepto-label" class="property-label"><g:message code="factura.concepto.label" default="Concepto" /></span>
@@ -73,15 +82,6 @@
 					<span id="persona-label" class="property-label"><g:message code="factura.persona.label" default="Persona" /></span>
 					
 						<span class="property-value" aria-labelledby="persona-label"><g:link controller="persona" action="show" id="${facturaInstance?.persona?.id}">${facturaInstance?.persona?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${facturaInstance?.taller}">
-				<li class="fieldcontain">
-					<span id="taller-label" class="property-label"><g:message code="factura.taller.label" default="Taller" /></span>
-					
-						<span class="property-value" aria-labelledby="taller-label"><g:link controller="taller" action="show" id="${facturaInstance?.taller?.id}">${facturaInstance?.taller?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

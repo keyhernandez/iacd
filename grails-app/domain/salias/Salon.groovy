@@ -3,7 +3,7 @@ package salias
 class Salon {
 String nombre
 List horarios
- static hasMany = [horarios:Horario]
+ static hasMany = [classe:Clase]
     static constraints = {
     }
       static mapping = {

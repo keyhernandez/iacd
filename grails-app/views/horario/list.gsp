@@ -28,8 +28,6 @@
 					
 						<g:sortableColumn property="horaInicio" title="${message(code: 'horario.horaInicio.label', default: 'Hora Inicio')}" />
 					
-						<th><g:message code="horario.salon.label" default="Salon" /></th>
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -39,8 +37,6 @@
 						<td><g:link action="show" id="${horarioInstance.id}">${fieldValue(bean: horarioInstance, field: "horaFin")}</g:link></td>
 					
 						<td><g:formatDate date="${horarioInstance.horaInicio}" /></td>
-					
-						<td>${fieldValue(bean: horarioInstance, field: "salon")}</td>
 					
 					</tr>
 				</g:each>

@@ -2,18 +2,18 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: salonInstance, field: 'horarios', 'error')} ">
-	<label for="horarios">
-		<g:message code="salon.horarios.label" default="Horarios" />
+<div class="fieldcontain ${hasErrors(bean: salonInstance, field: 'classe', 'error')} ">
+	<label for="classe">
+		<g:message code="salon.classe.label" default="Classe" />
 		
 	</label>
 	
 <ul class="one-to-many">
-<g:each in="${salonInstance?.horarios?}" var="h">
-    <li><g:link controller="horario" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></li>
+<g:each in="${salonInstance?.classe?}" var="c">
+    <li><g:link controller="clase" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="horario" action="create" params="['salon.id': salonInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'horario.label', default: 'Horario')])}</g:link>
+<g:link controller="clase" action="create" params="['salon.id': salonInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'clase.label', default: 'Clase')])}</g:link>
 </li>
 </ul>
 

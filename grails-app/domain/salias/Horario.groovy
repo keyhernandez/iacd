@@ -1,12 +1,13 @@
 package salias
 
+import java.util.Formatter.DateTime
 class Horario {
 Date horaInicio
 Date horaFin
 
 List clases1
 static hasMany = [ clases1:Clase]
- static belongsTo = [salon:Salon]
+ 
     static constraints = {
     }
     

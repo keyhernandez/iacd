@@ -52,31 +52,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${tallerInstance?.facturas1}">
-				<li class="fieldcontain">
-					<span id="facturas1-label" class="property-label"><g:message code="taller.facturas1.label" default="Facturas1" /></span>
-					
-						<g:each in="${tallerInstance.facturas1}" var="f">
-						<span class="property-value" aria-labelledby="facturas1-label"><g:link controller="factura" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${tallerInstance?.nombre}">
 				<li class="fieldcontain">
 					<span id="nombre-label" class="property-label"><g:message code="taller.nombre.label" default="Nombre" /></span>
 					
 						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${tallerInstance}" field="nombre"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${tallerInstance?.precio}">
-				<li class="fieldcontain">
-					<span id="precio-label" class="property-label"><g:message code="taller.precio.label" default="Precio" /></span>
-					
-						<span class="property-value" aria-labelledby="precio-label"><g:link controller="precio" action="show" id="${tallerInstance?.precio?.id}">${tallerInstance?.precio?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

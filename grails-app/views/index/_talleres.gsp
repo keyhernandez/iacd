@@ -10,6 +10,9 @@
         <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Crear Taller</a></li>
         <li><a class="list" href="${createLink(controller:'Taller',action:'index')}">Consultar Talleres</a></li>
         <li><a class="list" href="${createLink(controller:'Clase',action:'create')}">Crear Clase</a></li>
+        <li><a class="list" href="${createLink(controller:'Precio',action:'index')}">Precios</a></li>
+         <li><a class="list" href="${createLink(controller:'Salon',action:'index')}">Salones</a></li>
+          <li><a class="list" href="${createLink(controller:'Horario',action:'index')}">Horarios</a></li>
       </ul>
     </section>
    

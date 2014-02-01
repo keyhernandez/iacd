@@ -24,6 +24,8 @@
 				<thead>
 					<tr>
 					
+						<th><g:message code="factura.clase2.label" default="Clase2" /></th>
+					
 						<g:sortableColumn property="concepto" title="${message(code: 'factura.concepto.label', default: 'Concepto')}" />
 					
 						<g:sortableColumn property="fecha" title="${message(code: 'factura.fecha.label', default: 'Fecha')}" />
@@ -34,15 +36,15 @@
 					
 						<g:sortableColumn property="observaciones" title="${message(code: 'factura.observaciones.label', default: 'Observaciones')}" />
 					
-						<th><g:message code="factura.persona.label" default="Persona" /></th>
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${facturaInstanceList}" status="i" var="facturaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${facturaInstance.id}">${fieldValue(bean: facturaInstance, field: "concepto")}</g:link></td>
+						<td><g:link action="show" id="${facturaInstance.id}">${fieldValue(bean: facturaInstance, field: "clase2")}</g:link></td>
+					
+						<td>${fieldValue(bean: facturaInstance, field: "concepto")}</td>
 					
 						<td><g:formatDate date="${facturaInstance.fecha}" /></td>
 					
@@ -51,8 +53,6 @@
 						<td>${fieldValue(bean: facturaInstance, field: "grupo")}</td>
 					
 						<td>${fieldValue(bean: facturaInstance, field: "observaciones")}</td>
-					
-						<td>${fieldValue(bean: facturaInstance, field: "persona")}</td>
 					
 					</tr>
 				</g:each>

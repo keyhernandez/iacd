@@ -35,11 +35,3 @@
 	<g:datePicker name="horaInicio" precision="day"  value="${horarioInstance?.horaInicio}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: horarioInstance, field: 'salon', 'error')} required">
-	<label for="salon">
-		<g:message code="horario.salon.label" default="Salon" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="salon" name="salon.id" from="${salias.Salon.list()}" optionKey="id" required="" value="${horarioInstance?.salon?.id}" class="many-to-one"/>
-</div>
-

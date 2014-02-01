@@ -52,15 +52,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${horarioInstance?.salon}">
-				<li class="fieldcontain">
-					<span id="salon-label" class="property-label"><g:message code="horario.salon.label" default="Salon" /></span>
-					
-						<span class="property-value" aria-labelledby="salon-label"><g:link controller="salon" action="show" id="${horarioInstance?.salon?.id}">${horarioInstance?.salon?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

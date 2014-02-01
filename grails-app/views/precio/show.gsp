@@ -23,20 +23,22 @@
 			</g:if>
 			<ol class="property-list precio">
 			
+				<g:if test="${precioInstance?.clasee}">
+				<li class="fieldcontain">
+					<span id="clasee-label" class="property-label"><g:message code="precio.clasee.label" default="Clasee" /></span>
+					
+						<g:each in="${precioInstance.clasee}" var="c">
+						<span class="property-value" aria-labelledby="clasee-label"><g:link controller="clase" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${precioInstance?.monto}">
 				<li class="fieldcontain">
 					<span id="monto-label" class="property-label"><g:message code="precio.monto.label" default="Monto" /></span>
 					
 						<span class="property-value" aria-labelledby="monto-label"><g:fieldValue bean="${precioInstance}" field="monto"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${precioInstance?.taller}">
-				<li class="fieldcontain">
-					<span id="taller-label" class="property-label"><g:message code="precio.taller.label" default="Taller" /></span>
-					
-						<span class="property-value" aria-labelledby="taller-label"><g:link controller="taller" action="show" id="${precioInstance?.taller?.id}">${precioInstance?.taller?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

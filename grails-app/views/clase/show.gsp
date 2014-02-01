@@ -34,6 +34,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${claseInstance?.facturas}">
+				<li class="fieldcontain">
+					<span id="facturas-label" class="property-label"><g:message code="clase.facturas.label" default="Facturas" /></span>
+					
+						<g:each in="${claseInstance.facturas}" var="f">
+						<span class="property-value" aria-labelledby="facturas-label"><g:link controller="factura" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${claseInstance?.fechaFin}">
 				<li class="fieldcontain">
 					<span id="fechaFin-label" class="property-label"><g:message code="clase.fechaFin.label" default="Fecha Fin" /></span>
@@ -66,6 +77,24 @@
 					<span id="persona-label" class="property-label"><g:message code="clase.persona.label" default="Persona" /></span>
 					
 						<span class="property-value" aria-labelledby="persona-label"><g:link controller="persona" action="show" id="${claseInstance?.persona?.id}">${claseInstance?.persona?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${claseInstance?.precio}">
+				<li class="fieldcontain">
+					<span id="precio-label" class="property-label"><g:message code="clase.precio.label" default="Precio" /></span>
+					
+						<span class="property-value" aria-labelledby="precio-label"><g:link controller="precio" action="show" id="${claseInstance?.precio?.id}">${claseInstance?.precio?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${claseInstance?.salon}">
+				<li class="fieldcontain">
+					<span id="salon-label" class="property-label"><g:message code="clase.salon.label" default="Salon" /></span>
+					
+						<span class="property-value" aria-labelledby="salon-label"><g:link controller="salon" action="show" id="${claseInstance?.salon?.id}">${claseInstance?.salon?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

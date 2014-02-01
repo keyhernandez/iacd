@@ -19,6 +19,23 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'facturas', 'error')} ">
+	<label for="facturas">
+		<g:message code="clase.facturas.label" default="Facturas" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${claseInstance?.facturas?}" var="f">
+    <li><g:link controller="factura" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="factura" action="create" params="['clase.id': claseInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'factura.label', default: 'Factura')])}</g:link>
+</li>
+</ul>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'fechaFin', 'error')} required">
 	<label for="fechaFin">
 		<g:message code="clase.fechaFin.label" default="Fecha Fin" />
@@ -49,6 +66,22 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="persona" name="persona.id" from="${salias.Persona.list()}" optionKey="id" required="" value="${claseInstance?.persona?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'precio', 'error')} required">
+	<label for="precio">
+		<g:message code="clase.precio.label" default="Precio" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="precio" name="precio.id" from="${salias.Precio.list()}" optionKey="id" required="" value="${claseInstance?.precio?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'salon', 'error')} required">
+	<label for="salon">
+		<g:message code="clase.salon.label" default="Salon" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="salon" name="salon.id" from="${salias.Salon.list()}" optionKey="id" required="" value="${claseInstance?.salon?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'taller', 'error')} required">

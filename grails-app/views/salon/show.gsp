@@ -23,12 +23,12 @@
 			</g:if>
 			<ol class="property-list salon">
 			
-				<g:if test="${salonInstance?.horarios}">
+				<g:if test="${salonInstance?.classe}">
 				<li class="fieldcontain">
-					<span id="horarios-label" class="property-label"><g:message code="salon.horarios.label" default="Horarios" /></span>
+					<span id="classe-label" class="property-label"><g:message code="salon.classe.label" default="Classe" /></span>
 					
-						<g:each in="${salonInstance.horarios}" var="h">
-						<span class="property-value" aria-labelledby="horarios-label"><g:link controller="horario" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></span>
+						<g:each in="${salonInstance.classe}" var="c">
+						<span class="property-value" aria-labelledby="classe-label"><g:link controller="clase" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

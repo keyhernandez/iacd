@@ -4,15 +4,14 @@ class Taller {
 String nombre
 String categoria
 String descripcion
-List facturas1
 
-  static hasMany = [facturas1:Factura,clases:Clase]
-  static hasOne = [precio:Precio]
+
+  static hasMany = [clases:Clase]
+
     static constraints = {
     }
       static mapping = {
-        facturas1 cascade: "all-delete-orphan"
-        horarios1 cascade: "all-delete-orphan"
+        clases cascade: "all-delete-orphan"
     }
     String toString()
     {

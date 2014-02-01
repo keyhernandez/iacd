@@ -2,6 +2,14 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'clase2', 'error')} required">
+	<label for="clase2">
+		<g:message code="factura.clase2.label" default="Clase2" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="clase2" name="clase2.id" from="${salias.Clase.list()}" optionKey="id" required="" value="${facturaInstance?.clase2?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'concepto', 'error')} ">
 	<label for="concepto">
 		<g:message code="factura.concepto.label" default="Concepto" />
@@ -48,13 +56,5 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="persona" name="persona.id" from="${salias.Persona.list()}" optionKey="id" required="" value="${facturaInstance?.persona?.id}" class="many-to-one"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'taller', 'error')} required">
-	<label for="taller">
-		<g:message code="factura.taller.label" default="Taller" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="taller" name="taller.id" from="${salias.Taller.list()}" optionKey="id" required="" value="${facturaInstance?.taller?.id}" class="many-to-one"/>
 </div>
 
