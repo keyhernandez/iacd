@@ -97,7 +97,7 @@ img {
 
 #grailsLogo a {
 	display: inline-block;
-	margin: 1em 1em 1em 3em;
+	margin: 0.3em 1em 1em 3em;
         text-align: center;
 }
 
@@ -756,4 +756,22 @@ a.skip {
 	color: #ffffff;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+#buttonLogin {
+  
+    background-color:white ;/*#CCE6FF#efefef;*/
+    border:1px solid #CCCCCC;
+	color: blue;/*#666666;*/
+	display: block;
+
+	padding: 0.15em 0.5em;
+	text-decoration: none;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em ;
+                font-size: 0.90em;
+                font-weight: bold;
+
+float:right;
 }

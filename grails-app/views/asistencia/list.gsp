@@ -24,9 +24,9 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="fecha" title="${message(code: 'asistencia.fecha.label', default: 'Fecha')}" />
+						<th><g:message code="asistencia.clase.label" default="Clase" /></th>
 					
-						<th><g:message code="asistencia.horario.label" default="Horario" /></th>
+						<g:sortableColumn property="fecha" title="${message(code: 'asistencia.fecha.label', default: 'Fecha')}" />
 					
 						<th><g:message code="asistencia.persona.label" default="Persona" /></th>
 					
@@ -36,9 +36,9 @@
 				<g:each in="${asistenciaInstanceList}" status="i" var="asistenciaInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${asistenciaInstance.id}">${fieldValue(bean: asistenciaInstance, field: "fecha")}</g:link></td>
+						<td><g:link action="show" id="${asistenciaInstance.id}">${fieldValue(bean: asistenciaInstance, field: "clase")}</g:link></td>
 					
-						<td>${fieldValue(bean: asistenciaInstance, field: "horario")}</td>
+						<td><g:formatDate date="${asistenciaInstance.fecha}" /></td>
 					
 						<td>${fieldValue(bean: asistenciaInstance, field: "persona")}</td>
 					

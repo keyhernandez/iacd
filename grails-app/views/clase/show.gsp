@@ -23,6 +23,17 @@
 			</g:if>
 			<ol class="property-list clase">
 			
+				<g:if test="${claseInstance?.asistencia}">
+				<li class="fieldcontain">
+					<span id="asistencia-label" class="property-label"><g:message code="clase.asistencia.label" default="Asistencia" /></span>
+					
+						<g:each in="${claseInstance.asistencia}" var="a">
+						<span class="property-value" aria-labelledby="asistencia-label"><g:link controller="asistencia" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${claseInstance?.fechaFin}">
 				<li class="fieldcontain">
 					<span id="fechaFin-label" class="property-label"><g:message code="clase.fechaFin.label" default="Fecha Fin" /></span>
@@ -55,6 +66,15 @@
 					<span id="persona-label" class="property-label"><g:message code="clase.persona.label" default="Persona" /></span>
 					
 						<span class="property-value" aria-labelledby="persona-label"><g:link controller="persona" action="show" id="${claseInstance?.persona?.id}">${claseInstance?.persona?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${claseInstance?.taller}">
+				<li class="fieldcontain">
+					<span id="taller-label" class="property-label"><g:message code="clase.taller.label" default="Taller" /></span>
+					
+						<span class="property-value" aria-labelledby="taller-label"><g:link controller="taller" action="show" id="${claseInstance?.taller?.id}">${claseInstance?.taller?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

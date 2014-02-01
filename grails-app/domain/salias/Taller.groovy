@@ -5,8 +5,8 @@ String nombre
 String categoria
 String descripcion
 List facturas1
-List horarios1
-  static hasMany = [facturas1:Factura,horarios1:Horario]
+
+  static hasMany = [facturas1:Factura,clases:Clase]
   static hasOne = [precio:Precio]
     static constraints = {
     }
@@ -14,7 +14,8 @@ List horarios1
         facturas1 cascade: "all-delete-orphan"
         horarios1 cascade: "all-delete-orphan"
     }
-     String toString(){
+    String toString()
+    {
         return "${nombre}"
     }
 }

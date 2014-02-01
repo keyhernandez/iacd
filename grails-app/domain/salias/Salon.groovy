@@ -9,4 +9,7 @@ List horarios
       static mapping = {
         addresses cascade: "all-delete-orphan"
     }
+     String toString(){
+        return "${nombre}"
+    }
 }

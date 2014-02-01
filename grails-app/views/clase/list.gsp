@@ -32,6 +32,8 @@
 					
 						<th><g:message code="clase.persona.label" default="Persona" /></th>
 					
+						<th><g:message code="clase.taller.label" default="Taller" /></th>
+					
 						<g:sortableColumn property="tipoProfesor" title="${message(code: 'clase.tipoProfesor.label', default: 'Tipo Profesor')}" />
 					
 					</tr>
@@ -47,6 +49,8 @@
 						<td>${fieldValue(bean: claseInstance, field: "horario")}</td>
 					
 						<td>${fieldValue(bean: claseInstance, field: "persona")}</td>
+					
+						<td>${fieldValue(bean: claseInstance, field: "taller")}</td>
 					
 						<td>${fieldValue(bean: claseInstance, field: "tipoProfesor")}</td>
 					

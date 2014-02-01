@@ -32,6 +32,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${tallerInstance?.clases}">
+				<li class="fieldcontain">
+					<span id="clases-label" class="property-label"><g:message code="taller.clases.label" default="Clases" /></span>
+					
+						<g:each in="${tallerInstance.clases}" var="c">
+						<span class="property-value" aria-labelledby="clases-label"><g:link controller="clase" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${tallerInstance?.descripcion}">
 				<li class="fieldcontain">
 					<span id="descripcion-label" class="property-label"><g:message code="taller.descripcion.label" default="Descripcion" /></span>
@@ -52,17 +63,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${tallerInstance?.horarios1}">
-				<li class="fieldcontain">
-					<span id="horarios1-label" class="property-label"><g:message code="taller.horarios1.label" default="Horarios1" /></span>
-					
-						<g:each in="${tallerInstance.horarios1}" var="h">
-						<span class="property-value" aria-labelledby="horarios1-label"><g:link controller="horario" action="show" id="${h.id}">${h?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${tallerInstance?.nombre}">
 				<li class="fieldcontain">
 					<span id="nombre-label" class="property-label"><g:message code="taller.nombre.label" default="Nombre" /></span>
@@ -77,17 +77,6 @@
 					<span id="precio-label" class="property-label"><g:message code="taller.precio.label" default="Precio" /></span>
 					
 						<span class="property-value" aria-labelledby="precio-label"><g:link controller="precio" action="show" id="${tallerInstance?.precio?.id}">${tallerInstance?.precio?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${tallerInstance?.profesores}">
-				<li class="fieldcontain">
-					<span id="profesores-label" class="property-label"><g:message code="taller.profesores.label" default="Profesores" /></span>
-					
-						<g:each in="${tallerInstance.profesores}" var="p">
-						<span class="property-value" aria-labelledby="profesores-label"><g:link controller="tallerProfesor" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
 					
 				</li>
 				</g:if>
