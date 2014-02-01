@@ -18,6 +18,13 @@
     <script type="text/javascript" src="${resource(dir: 'js', file: 'myScripts.js')}"></script>
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.js')}"></script>
   <g:layoutHead/>
+   <sec:ifNotLoggedIn>
+    <g:link style="color: blue; font-size:0.9em;" controller='login' action='auth' >Login</g:link>
+  </sec:ifNotLoggedIn>
+  <sec:ifLoggedIn>  
+    <g:link style="color: blue; font-size:0.9em;" controller='logout' action='index' >Logout</g:link> 
+  </sec:ifLoggedIn>
+
   <r:layoutResources />
 </head>
 <body>

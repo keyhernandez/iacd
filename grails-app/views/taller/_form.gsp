@@ -60,3 +60,28 @@
 	<g:textField name="nombre" value="${tallerInstance?.nombre}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: tallerInstance, field: 'precio', 'error')} required">
+	<label for="precio">
+		<g:message code="taller.precio.label" default="Precio" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="precio" name="precio.id" from="${salias.Precio.list()}" optionKey="id" required="" value="${tallerInstance?.precio?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: tallerInstance, field: 'profesores', 'error')} ">
+	<label for="profesores">
+		<g:message code="taller.profesores.label" default="Profesores" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${tallerInstance?.profesores?}" var="p">
+    <li><g:link controller="tallerProfesor" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="tallerProfesor" action="create" params="['taller.id': tallerInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'tallerProfesor.label', default: 'TallerProfesor')])}</g:link>
+</li>
+</ul>
+
+</div>
+

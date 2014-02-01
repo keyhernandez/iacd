@@ -15,10 +15,14 @@ class Persona {
     List clases
     List facturas
     
-     static hasMany = [telefonos: Telefono,asistencias:Asistencia,clases:Clase,facturas:Factura]
+     static hasMany = [telefonos: Telefono,asistencias:Asistencia,clases:Clase,facturas:Factura,talleres:TallerProfesor]
       static mapping = {
         telefonos cascade: "all-delete-orphan"
     }
     static constraints = {
+    }
+    
+    String toString(){
+        return "${nombre}"
     }
 }

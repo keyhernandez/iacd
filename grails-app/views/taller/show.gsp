@@ -72,6 +72,26 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${tallerInstance?.precio}">
+				<li class="fieldcontain">
+					<span id="precio-label" class="property-label"><g:message code="taller.precio.label" default="Precio" /></span>
+					
+						<span class="property-value" aria-labelledby="precio-label"><g:link controller="precio" action="show" id="${tallerInstance?.precio?.id}">${tallerInstance?.precio?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${tallerInstance?.profesores}">
+				<li class="fieldcontain">
+					<span id="profesores-label" class="property-label"><g:message code="taller.profesores.label" default="Profesores" /></span>
+					
+						<g:each in="${tallerInstance.profesores}" var="p">
+						<span class="property-value" aria-labelledby="profesores-label"><g:link controller="tallerProfesor" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">
