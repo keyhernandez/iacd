@@ -21,14 +21,14 @@ environments {
     }   
     test {
          dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:postgresql:salias"
             
         }  
     }   
     production {
          dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:postgresql:salias"
           
         }  
