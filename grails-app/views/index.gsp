@@ -118,6 +118,9 @@
   <input id="tab-3" type="radio" name="tab-group" />
   <label for="tab-3">Profesores</label>
   <input id="tab-3" type="radio" name="tab-group" />
+            <input id="tab-4" type="radio" name="tab-group" />
+            <label for="tab-4">Empleado</label>
+            <input id="tab-4" type="radio" name="tab-group" />
 
   <!--Contenido a mostrar/ocultar-->
   <div id="content">
