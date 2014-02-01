@@ -7,9 +7,9 @@
  <section id="nav1">
      
       <ul>
-        <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Agregar Taller</a></li>
+        <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Crear Taller</a></li>
         <li><a class="list" href="${createLink(controller:'Taller',action:'index')}">Consultar Talleres</a></li>
-        
+        <li><a class="list" href="${createLink(controller:'Clase',action:'create')}">Crear Clase</a></li>
       </ul>
     </section>
    
