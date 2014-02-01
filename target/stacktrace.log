@@ -39614,3 +39614,190 @@ java.lang.IllegalArgumentException: Failed to evaluate expression 'EMPLEADO_ADMI
 	at java.lang.Thread.run(Thread.java:722)
 Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E:(pos 0): Field or property 'EMPLEADO_ADMINISTRADOR' cannot be found on object of type 'org.springframework.security.web.access.expression.WebSecurityExpressionRoot'
 	... 3 more
+2014-02-01 11:53:15,889 [FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@7d229423] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [profesores] for class [class salias.Taller]
+	at org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass.getPropertyByName(DefaultGrailsDomainClass.java:666)
+	at org.codehaus.groovy.grails.commons.GrailsDomainConfigurationUtil.configureDomainClassRelationships(GrailsDomainConfigurationUtil.java:159)
+	at org.codehaus.groovy.grails.commons.DomainClassArtefactHandler.initialize(DomainClassArtefactHandler.java:60)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.initializeArtefacts(DefaultGrailsApplication.java:621)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.initializeArtefacts(DefaultGrailsApplication.java:594)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.addArtefact(DefaultGrailsApplication.java:825)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.addArtefact(DefaultGrailsApplication.java:535)
+	at org.codehaus.groovy.grails.commons.GrailsApplication$addArtefact.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at org.codehaus.groovy.grails.plugins.DomainClassGrailsPlugin$_closure3.doCall(DomainClassGrailsPlugin.groovy:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1265)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1082)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1106)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:906)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.invokeOnChangeListener(DefaultGrailsPlugin.java:768)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:717)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:732)
+	at org.codehaus.groovy.grails.plugins.AbstractGrailsPluginManager.informOfClassChange(AbstractGrailsPluginManager.java:407)
+	at org.codehaus.groovy.grails.compiler.GrailsProjectWatcher$2.run(GrailsProjectWatcher.java:257)
+	at org.codehaus.groovy.grails.compiler.GrailsProjectWatcher.firePendingClassChangeEvents(GrailsProjectWatcher.java:124)
+	at org.codehaus.groovy.grails.cli.agent.GrailsPluginManagerReloadPlugin.reloadEvent(GrailsPluginManagerReloadPlugin.java:42)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1641)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:808)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:53:15,890 [FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@7d229423] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [profesores] for class [class salias.Taller]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:53:15,890 [FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@7d229423] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [profesores] for class [class salias.Taller]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:53:15,890 [FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@7d229423] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [profesores] for class [class salias.Taller]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:53:16,642 [FileSystemWatcher: files=#353 cl=java.net.URLClassLoader@3deaeb45] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass.getPropertyByName(DefaultGrailsDomainClass.java:666)
+	at org.codehaus.groovy.grails.commons.GrailsDomainConfigurationUtil.configureDomainClassRelationships(GrailsDomainConfigurationUtil.java:159)
+	at org.codehaus.groovy.grails.commons.DomainClassArtefactHandler.initialize(DomainClassArtefactHandler.java:60)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.initializeArtefacts(DefaultGrailsApplication.java:621)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.initializeArtefacts(DefaultGrailsApplication.java:594)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.addArtefact(DefaultGrailsApplication.java:825)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.addArtefact(DefaultGrailsApplication.java:535)
+	at org.codehaus.groovy.grails.commons.GrailsApplication$addArtefact.call(Unknown Source)
+	at org.codehaus.groovy.grails.plugins.DomainClassGrailsPlugin$_closure3.doCall(DomainClassGrailsPlugin.groovy:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1265)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1082)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1106)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:906)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.invokeOnChangeListener(DefaultGrailsPlugin.java:768)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:717)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:732)
+	at org.codehaus.groovy.grails.plugins.AbstractGrailsPluginManager.informOfClassChange(AbstractGrailsPluginManager.java:407)
+	at org.codehaus.groovy.grails.compiler.GrailsProjectWatcher$2.run(GrailsProjectWatcher.java:257)
+	at org.codehaus.groovy.grails.compiler.GrailsProjectWatcher.firePendingClassChangeEvents(GrailsProjectWatcher.java:124)
+	at org.codehaus.groovy.grails.cli.agent.GrailsPluginManagerReloadPlugin.reloadEvent(GrailsPluginManagerReloadPlugin.java:42)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1641)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:808)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:53:16,643 [FileSystemWatcher: files=#353 cl=java.net.URLClassLoader@3deaeb45] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:53:16,645 [FileSystemWatcher: files=#353 cl=java.net.URLClassLoader@3deaeb45] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:53:16,645 [FileSystemWatcher: files=#353 cl=java.net.URLClassLoader@3deaeb45] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:54:10,224 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at org.codehaus.groovy.grails.web.mapping.filter.UrlMappingsFilter.checkDevelopmentReloadingState(UrlMappingsFilter.java:311)
+	at org.codehaus.groovy.grails.web.mapping.filter.UrlMappingsFilter.doFilterInternal(UrlMappingsFilter.java:213)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.codehaus.groovy.grails.web.sitemesh.GrailsPageFilter.obtainContent(GrailsPageFilter.java:206)
+	at org.codehaus.groovy.grails.web.sitemesh.GrailsPageFilter.doFilter(GrailsPageFilter.java:152)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at javax.servlet.FilterChain$doFilter.call(Unknown Source)
+	at org.grails.plugin.resource.DevModeSanityFilter.doFilter(DevModeSanityFilter.groovy:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:369)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:109)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:97)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:78)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:54)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:187)
+	at org.codehaus.groovy.grails.plugins.springsecurity.RequestHolderAuthenticationFilter.doFilter(RequestHolderAuthenticationFilter.java:40)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.codehaus.groovy.grails.plugins.springsecurity.MutableLogoutFilter.doFilter(MutableLogoutFilter.java:79)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:79)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:381)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:168)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.codehaus.groovy.grails.web.servlet.mvc.GrailsWebRequestFilter.doFilterInternal(GrailsWebRequestFilter.java:69)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.codehaus.groovy.grails.web.filters.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:99)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1023)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:589)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	... 1 more
+2014-02-01 11:54:10,225 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:54:10,225 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	... 1 more
+2014-02-01 11:54:10,229 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	... 1 more
+2014-02-01 11:54:10,230 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.lang.Thread.run(Thread.java:722)
+2014-02-01 11:54:10,230 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+java.lang.RuntimeException: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [talleres] for class [class salias.Persona]
+	... 1 more

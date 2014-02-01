@@ -15,7 +15,7 @@ class Persona {
     List clases
     List facturas
     
-     static hasMany = [telefonos: Telefono,asistencias:Asistencia,clases:Clase,facturas:Factura,talleres:TallerProfesor]
+     static hasMany = [telefonos: Telefono,asistencias:Asistencia,clases:Clase,facturas:Factura]
       static mapping = {
         telefonos cascade: "all-delete-orphan"
     }
