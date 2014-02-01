@@ -52,12 +52,12 @@
 	<g:textField name="correo" value="${personaInstance?.correo}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'esEmpleado', 'error')} ">
-	<label for="esEmpleado">
-		<g:message code="persona.esEmpleado.label" default="Es Empleado" />
+<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'tipoPersona', 'error')} ">
+	<label for="tipoPersona">
+		<g:message code="persona.tipoPersona.label" default="Es Empleado" />
 		
 	</label>
-	<g:checkBox name="esEmpleado" value="${personaInstance?.esEmpleado}" />
+	<g:checkBox name="tipoPersona" value="${personaInstance?.tipoPersona}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'facturas', 'error')} ">

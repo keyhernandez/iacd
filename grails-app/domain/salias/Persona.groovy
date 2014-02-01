@@ -7,7 +7,7 @@ class Persona {
     String sexo
     Date fechaNac
     String correo
-    boolean esEmpleado
+    String tipoPersona
     String cedula
     String password
     List telefonos

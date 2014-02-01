@@ -19,8 +19,20 @@ class PersonaController {
         params.max = Math.min(max ?: 10, 100)
         [personaInstanceList: Persona.list(params), personaInstanceTotal: Persona.count()]
     }
+    
+    def alumnoList(Integer max) {
+        def query = "from Persona as p where p.tipoPersona='Alumno'"
+        def personas=Persona.findAll(query,[max:Math.min(max ?: 10, 100)])
+        [personaInstanceList: personas, personaInstanceTotal: personas.size()]
+    }
 
     def create() {
+        // default add one empty address
+        params.telefonos = [new Telefono()]
+        [personaInstance: new Persona(params)]
+    }
+    
+    def alumnoCreate() {
         // default add one empty address
         params.telefonos = [new Telefono()]
         [personaInstance: new Persona(params)]
@@ -89,7 +101,28 @@ class PersonaController {
         [personaInstance: personaInstance]
     }
 
+    def AlumnoShow(Long id) {
+        def personaInstance = Persona.get(id)
+        if (!personaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'persona.label', default: 'Persona'), id])
+            redirect(action: "listAlumno")
+            return
+        }
+
+        [personaInstance: personaInstance]
+    }
+    
     def edit(Long id) {
+        def personaInstance = Persona.get(id)
+        if (!personaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'persona.label', default: 'Persona'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [personaInstance: personaInstance]
+    }
+    def alumnoEdit(Long id) {
         def personaInstance = Persona.get(id)
         if (!personaInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'persona.label', default: 'Persona'), id])
@@ -101,6 +134,41 @@ class PersonaController {
     }
 
     def update() {
+        def personaInstance = Persona.get(params.id)
+        if (!personaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'person.label', default: 'Person'), params.id])
+            redirect(action: "list")
+            return
+        }
+
+        if (params.version) {
+            def version = params.version.toLong()
+            if (personaInstance.version > version) {
+                personaInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+                    [message(code: 'person.label', default: 'Person')] as Object[],
+                          "Another user has updated this Person while you were editing")
+                render(view: "edit", model: [personaInstance: personaInstance])
+                return
+            }
+        } 
+
+        // code change goes here
+        def removeList = elementsToRemoveFromList(params, "telefonos", new Telefono(), personaInstance.telefonos)
+        personaInstance.telefonos.removeAll(removeList)
+        // code change ends here
+        
+        personaInstance.properties = params
+        
+        if (!personaInstance.save(flush: true)) {
+            render(view: "edit", model: [personaInstance: personaInstance])
+            return
+        }
+
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'person.label', default: 'Person'), personaInstance.id])
+        redirect(action: "show", id: personaInstance.id)
+    }
+    
+    def alumnoUpdate() {
         def personaInstance = Persona.get(params.id)
         if (!personaInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'person.label', default: 'Person'), params.id])

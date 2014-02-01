@@ -14,21 +14,21 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:postgresql:salias"
        
         }   
     }   
     test {
          dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:postgresql:salias"
             
         }  
     }   
     production {
          dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:postgresql:salias"
           
         }  
