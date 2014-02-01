@@ -684,10 +684,19 @@ a.skip {
 }
 #container input#tab-1:checked ~ #content #content-1,
 #container input#tab-2:checked ~ #content #content-2,
-#container input#tab-3:checked ~ #content #content-3 {
+#container input#tab-3:checked ~ #content #content-3,
+#container input#tab-4:checked ~ #content #content-4{
  opacity: 1;
  z-index: 100;
 } 
+
+#content-4 p,
+#content-4 ul {
+ margin-bottom: 1em;
+}
+#content-4 ul {
+ margin-left: 2em;
+}
 
 
 
