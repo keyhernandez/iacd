@@ -31,6 +31,6 @@ environments {
             dbCreate = "create-drop"
             url = "jdbc:postgresql:salias"
           
-        }  
+        } 
     }   
 }

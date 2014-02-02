@@ -24,9 +24,9 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="horaFin" title="${message(code: 'horario.horaFin.label', default: 'Hora Fin')}" />
-					
 						<g:sortableColumn property="horaInicio" title="${message(code: 'horario.horaInicio.label', default: 'Hora Inicio')}" />
+					
+						<g:sortableColumn property="horaFin" title="${message(code: 'horario.horaFin.label', default: 'Hora Fin')}" />
 					
 					</tr>
 				</thead>
@@ -34,9 +34,9 @@
 				<g:each in="${horarioInstanceList}" status="i" var="horarioInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${horarioInstance.id}">${fieldValue(bean: horarioInstance, field: "horaFin")}</g:link></td>
+						<td>${horarioInstance.horaInicio+":"+horarioInstance.minutosInicio+" "+horarioInstance.meridianoInicio} </td>
 					
-						<td><g:formatDate date="${horarioInstance.horaInicio}" /></td>
+						<td>${horarioInstance.horaFin+":"+horarioInstance.minutosFin+" "+horarioInstance.meridianoFin}</td>
 					
 					</tr>
 				</g:each>

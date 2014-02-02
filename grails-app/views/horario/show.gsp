@@ -34,20 +34,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${horarioInstance?.horaFin}">
-				<li class="fieldcontain">
-					<span id="horaFin-label" class="property-label"><g:message code="horario.horaFin.label" default="Hora Fin" /></span>
-					
-						<span class="property-value" aria-labelledby="horaFin-label"><g:formatDate date="${horarioInstance?.horaFin}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${horarioInstance?.horaInicio}">
 				<li class="fieldcontain">
 					<span id="horaInicio-label" class="property-label"><g:message code="horario.horaInicio.label" default="Hora Inicio" /></span>
 					
-						<span class="property-value" aria-labelledby="horaInicio-label"><g:formatDate date="${horarioInstance?.horaInicio}" /></span>
+						<span class="property-value" aria-labelledby="horaInicio-label">${horarioInstance?.horaInicio+":"+horarioInstance?.minutosInicio+" "+horarioInstance?.meridianoInicio} </span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${horarioInstance?.horaFin}">
+				<li class="fieldcontain">
+					<span id="horaFin-label" class="property-label"><g:message code="horario.horaFin.label" default="Hora Fin" /></span>
+					
+						<span class="property-value" aria-labelledby="horaFin-label">${horarioInstance?.horaFin+":"+horarioInstance?.minutosFin+" "+horarioInstance?.meridianoFin}</span>
 					
 				</li>
 				</g:if>
