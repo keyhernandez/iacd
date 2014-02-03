@@ -80,7 +80,7 @@ class TelefonoController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'telefono.label', default: 'Telefono'), telefonoInstance.id])
-        redirect(action: "show", id: telefonoInstance.id)
+        redirect(controller:"persona", action: "alumnoShow", id: telefonoInstance.persona.id)
     }
 
     def delete(Long id) {

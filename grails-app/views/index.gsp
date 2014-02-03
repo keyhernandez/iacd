@@ -117,10 +117,10 @@
             <!--Pestaña 3 inactiva por defecto-->
             <input id="tab-3" type="radio" name="tab-group" />
             <label for="tab-3">Profesores</label>
-            <input id="tab-3" type="radio" name="tab-group" />
             <input id="tab-4" type="radio" name="tab-group" />
             <label for="tab-4">Empleado</label>
-            <input id="tab-4" type="radio" name="tab-group" />
+            <input id="tab-5" type="radio" name="tab-group" />
+            <label for="tab-5">Administración</label>
 
   <!--Contenido a mostrar/ocultar-->
             <div id="content">
@@ -143,6 +143,12 @@
                     <p class="column-left"><img src="${resource(dir: 'images', file: 'salias.jpg')}" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, est, nisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>
                     <p class="column-right"><img src="http://ximg.es/200x150" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, molestiae, officia repellendus quasi cumque dolor eius deserunt possimus aliquid neque nam assumenda veniam soluta enim commodi aperiam reprehenderit quia incidunt.</p>
                 </div>
+                <!--Contenido de la Pestaña 3-->
+                <div id="content-5">
+                    <g:render template="/index/administracion" />
+
+                </div>
             </div>
+        </div>
     </body>
 </html>

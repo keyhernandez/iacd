@@ -9,7 +9,7 @@
 		<g:message code="telefono.codigo.label" default="Codigo" />
 		
 	</label>
-	<g:textField name="${domainReference}codigo" value="${telefonoInstance?.codigo}"/>
+        <g:select name="${domainReference}codigo" from="${['0212', '0412', '0414', '0416','0424', '0426']}" value="${telefonoInstance?.codigo}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: telefonoInstance, field: 'numero', 'error')} ">

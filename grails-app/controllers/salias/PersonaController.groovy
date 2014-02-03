@@ -25,28 +25,6 @@ class PersonaController {
         params.telefonos = [new Telefono()]
         [personaInstance: new Persona(params)]
     }
-    
-
-    def addTelefono(){
-        // add one address to the list of addresses
-        def personaInstance = new Persona(params)
-        if (!personaInstance.telefonos)[
-            personaInstance.telefonos = []
-        ]
-        personaInstance.telefonos << new Telefono()
-        render template: "form" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
-    }
-	
-    def removeTelefono(){
-        // remove selected address from the list of addresses
-        def personaInstance = new Persona(params)
-        def removeIx = params.removeIx
-        List telefonos = personaInstance.telefonos.toArray()
-        def telefono = telefonos.get(removeIx.toInteger())
-        personaInstance.telefonos.remove(telefono)
-        render template: "form" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
-    }
-	
     /**
      * Returns a list with elements which can be removed from the referencing entity
      * @param params - the params which include the post parameters
@@ -261,6 +239,26 @@ class PersonaController {
         [personaInstance: personaInstance]
     }
     
+    def alumnoAddTelefono(){
+        // add one address to the list of addresses
+        def personaInstance = new Persona(params)
+        if (!personaInstance.telefonos)[
+            personaInstance.telefonos = []
+        ]
+        personaInstance.telefonos << new Telefono()
+        render template: "alumnoForm" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+	
+    def alumnoRemoveTelefono(){
+        // remove selected address from the list of addresses
+        def personaInstance = new Persona(params)
+        def removeIx = params.removeIx
+        List telefonos = personaInstance.telefonos.toArray()
+        def telefono = telefonos.get(removeIx.toInteger())
+        personaInstance.telefonos.remove(telefono)
+        render template: "alumnoForm" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
     //Funciones de Empleado
     def empleadoCreate() {
         // default add one empty address
@@ -342,6 +340,26 @@ class PersonaController {
         [personaInstance: personaInstance]
     }
     
+    def empleadoAddTelefono(){
+        // add one address to the list of addresses
+        def personaInstance = new Persona(params)
+        if (!personaInstance.telefonos)[
+            personaInstance.telefonos = []
+        ]
+        personaInstance.telefonos << new Telefono()
+        render template: "empleadoForm" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+	
+    def empleadoRemoveTelefono(){
+        // remove selected address from the list of addresses
+        def personaInstance = new Persona(params)
+        def removeIx = params.removeIx
+        List telefonos = personaInstance.telefonos.toArray()
+        def telefono = telefonos.get(removeIx.toInteger())
+        personaInstance.telefonos.remove(telefono)
+        render template: "empleadoForm" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
     //Funciones de profesor
     def profesorCreate() {
         // default add one empty address
@@ -421,5 +439,25 @@ class PersonaController {
         }
 
         [personaInstance: personaInstance]
+    }
+    
+    def profesorAddTelefono(){
+        // add one address to the list of addresses
+        def personaInstance = new Persona(params)
+        if (!personaInstance.telefonos)[
+            personaInstance.telefonos = []
+        ]
+        personaInstance.telefonos << new Telefono()
+        render template: "profesorForm" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+	
+    def profesorRemoveTelefono(){
+        // remove selected address from the list of addresses
+        def personaInstance = new Persona(params)
+        def removeIx = params.removeIx
+        List telefonos = personaInstance.telefonos.toArray()
+        def telefono = telefonos.get(removeIx.toInteger())
+        personaInstance.telefonos.remove(telefono)
+        render template: "profesorForm" , model: [personaInstance: personaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
     }
 }

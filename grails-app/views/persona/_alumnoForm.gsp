@@ -41,10 +41,10 @@
 
 <div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'fechaNac', 'error')} required">
     <label for="fechaNac">
-        <g:message code="persona.fechaNac.label" default="Fecha Nacimiento" />
+        <g:message code="persona.fechaNac.label" default="Fecha de Nacimiento" />
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="fechaNac" precision="day"  value="${personaInstance?.fechaNac}"  />
+    <g:datePicker name="fechaNac" precision="day" relativeYears="[-4..-100]" value="${personaInstance?.fechaNac}"  />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'sexo', 'error')} ">
@@ -56,15 +56,6 @@
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'telefonos', 'error')} ">
-    <label for="telefonos">
-        <g:message code="persona.telefonos.label" default="Telefonos" />
-
-    </label>
-
-<%-- ajax link to add new entries --%>
-    <input type="button" rel="nofollow" class="actionButton" href="javascript:void(0)" 
-    onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'addTelefono')}')" 
-    value="${message(code: 'default.addNew.label', default:'+') }"/>
     
     <g:each in="${personaInstance?.telefonos?}" var="a" status="i">
         <div>
@@ -73,12 +64,22 @@
             <%-- ajax link to remove entries --%>
             <label class="fieldcontain"><g:message code="telefono.label" default="Telefono" /></label>
             <input type="button" class="actionButton" 
-            onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'removeTelefono', params:[removeIx: i])}')" 
+            onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'alumnoRemoveTelefono', params:[removeIx: i])}')" 
             value="${message(code: 'default.remove.label', default:'-') }"/>
             <g:hiddenField name="telefonos[${i}].id" value="${a?.id}"/>
             <g:render template="/telefono/form" model="[telefonoInstance: a]"/>
         </div>
     </g:each>
+    <br>
+    <label for="telefonos">
+        <g:message code="persona.telefonos.label" default="Telefonos" />
+
+    </label>
+
+<%-- ajax link to add new entries --%>
+    <input type="button" rel="nofollow" class="actionButton" href="javascript:void(0)" 
+    onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'alumnoAddTelefono')}')" 
+    value="${message(code: 'default.addNew.label', default:'+') }"/>
 
 <%-- to restore the state of the form after ajax post/response --%>
     <g:hiddenField name="formId" value="${formId}"/>

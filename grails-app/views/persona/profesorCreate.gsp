@@ -4,14 +4,14 @@
     <head>
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'persona.label', default: 'Persona')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title>Registrar Profesor</title>
     </head>
     <body>
         <a href="#create-persona" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="profesorList"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                <li><g:link class="list" action="profesorList">Lista de Profesores</g:link></li>
                 </ul>
             </div>
             <div id="create-persona" class="content scaffold-create" role="main">
@@ -35,7 +35,7 @@
                     <g:render template="profesorForm"/>
                 </fieldset>
                 <fieldset class="buttons">
-                    <g:submitButton name="create" class="profesorSave" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                    <g:submitButton name="profesorCreate" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
             </g:form>
         </div>

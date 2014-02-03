@@ -51,7 +51,7 @@
         <tr class="${(index % 2) == 0 ? 'even' : 'odd'}">
 
           <td >
-        <g:link action="show" id="${result.id}">
+        <g:link action="alumnoShow" id="${result.id}">
 ${fieldValue(bean: result, field: "nombre")}
         </g:link>
         </td>

@@ -6,6 +6,9 @@ class Telefono {
     
     static belongsTo = [persona: Persona]
     static constraints = {
+        numero size: 7..7
+        numero blank: false, nullable:false
+        numero(matches: '\\d{7}')
     }
      String toString(){
         return "${codigo}"+"-"+"${numero}"

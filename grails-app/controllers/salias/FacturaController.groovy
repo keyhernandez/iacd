@@ -18,6 +18,10 @@ class FacturaController {
     def create() {
         [facturaInstance: new Factura(params)]
     }
+    
+    def inscripcionCreate() {
+        [facturaInstance: new Factura(params)]
+    }
 
     def save() {
         def facturaInstance = new Factura(params)

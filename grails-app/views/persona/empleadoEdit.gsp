@@ -4,15 +4,15 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'persona.label', default: 'Persona')}" />
-		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+		<title>Modificar Empleado</title>
 	</head>
 	<body>
 		<a href="#edit-persona" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="empleadoList"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="empleadoCreate"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="list" action="empleadoList">Listar Empleados</g:link></li>
+				<li><g:link class="create" action="empleadoCreate">Registrar Empleado</g:link></li>
 			</ul>
 		</div>
 		<div id="edit-persona" class="content scaffold-edit" role="main">

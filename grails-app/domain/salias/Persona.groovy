@@ -19,9 +19,17 @@ class Persona {
         telefonos cascade: "all-delete-orphan"
     }
     static constraints = {
+        correo email: true, nullable: true
+        plantilla nullable: false,unique: true
+        nombre nullable: true
+        cedula(matches:'\\d{1,8}',unique: true)
     }
     
     String toString(){
         return "${nombre}"
+    }
+    static profesores(){
+        def profesor=Persona.findAllByTipoPersona("Profesor")
+        return profesor
     }
 }

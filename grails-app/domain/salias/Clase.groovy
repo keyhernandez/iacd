@@ -8,4 +8,7 @@ static hasMany = [asistencia:Asistencia,facturas:Factura]
  static belongsTo = [persona:Persona,horario:Horario,taller:Taller,salon:Salon,precio:Precio]
     static constraints = {
     }
+    String toString(){
+        return "${taller}"+" / "+"${horario}"+" / "+"${persona}"
+    }
 }
