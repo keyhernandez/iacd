@@ -23,15 +23,33 @@
 			</g:if>
 			<ol class="property-list taller">
 			
+                                
+				<g:if test="${tallerInstance?.nombre}">
+				<li class="fieldcontain">
+					<span id="nombre-label" class="property-label"><g:message code="taller.nombre.label" default="Nombre" /></span>
+					
+						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${tallerInstance}" field="nombre"/></span>
+					
+				</li>
+				</g:if>
 				<g:if test="${tallerInstance?.categoria}">
 				<li class="fieldcontain">
-					<span id="categoria-label" class="property-label"><g:message code="taller.categoria.label" default="Categoria" /></span>
+					<span id="categoria-label" class="property-label"><g:message code="taller.categoria.label" default="Categoría" /></span>
 					
 						<span class="property-value" aria-labelledby="categoria-label"><g:fieldValue bean="${tallerInstance}" field="categoria"/></span>
 					
 				</li>
 				</g:if>
 			
+                          <g:if test="${tallerInstance?.descripcion}">
+				<li class="fieldcontain">
+					<span id="descripcion-label" class="property-label"><g:message code="taller.descripcion.label" default="Descripción" /></span>
+					
+						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${tallerInstance}" field="descripcion"/></span>
+					
+				</li>
+				</g:if>
+                          
 				<g:if test="${tallerInstance?.clases}">
 				<li class="fieldcontain">
 					<span id="clases-label" class="property-label"><g:message code="taller.clases.label" default="Clases" /></span>
@@ -43,25 +61,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${tallerInstance?.descripcion}">
-				<li class="fieldcontain">
-					<span id="descripcion-label" class="property-label"><g:message code="taller.descripcion.label" default="Descripcion" /></span>
-					
-						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${tallerInstance}" field="descripcion"/></span>
-					
-				</li>
-				</g:if>
+				
 			
-				<g:if test="${tallerInstance?.nombre}">
-				<li class="fieldcontain">
-					<span id="nombre-label" class="property-label"><g:message code="taller.nombre.label" default="Nombre" /></span>
-					
-						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${tallerInstance}" field="nombre"/></span>
-					
-				</li>
-				</g:if>
 			
 			</ol>
+                        <a href="javascript:history.go(-1)">Atrás</a>
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${tallerInstance?.id}" />

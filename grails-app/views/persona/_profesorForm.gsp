@@ -13,7 +13,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'plantilla', 'error')} ">
     <label for="plantilla">
-        <g:message code="persona.plantilla.label" default="Plantilla" />
+        <g:message code="persona.plantilla.label" default="Código" />
 
     </label>
     <g:textField name="plantilla" value="${personaInstance?.plantilla}"/>

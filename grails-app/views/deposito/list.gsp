@@ -24,9 +24,9 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="fecha" title="${message(code: 'deposito.fecha.label', default: 'Fecha')}" />
+						<th><g:message code="deposito.factura.label" default="Factura" /></th>
 					
-						<th><g:message code="deposito.formaPago.label" default="Forma Pago" /></th>
+						<g:sortableColumn property="fecha" title="${message(code: 'deposito.fecha.label', default: 'Fecha')}" />
 					
 						<g:sortableColumn property="monto" title="${message(code: 'deposito.monto.label', default: 'Monto')}" />
 					
@@ -38,9 +38,9 @@
 				<g:each in="${depositoInstanceList}" status="i" var="depositoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${depositoInstance.id}">${fieldValue(bean: depositoInstance, field: "fecha")}</g:link></td>
+						<td><g:link action="show" id="${depositoInstance.id}">${fieldValue(bean: depositoInstance, field: "factura")}</g:link></td>
 					
-						<td>${fieldValue(bean: depositoInstance, field: "formaPago")}</td>
+						<td><g:formatDate date="${depositoInstance.fecha}" /></td>
 					
 						<td>${fieldValue(bean: depositoInstance, field: "monto")}</td>
 					

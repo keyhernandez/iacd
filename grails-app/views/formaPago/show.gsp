@@ -23,6 +23,17 @@
 			</g:if>
 			<ol class="property-list formaPago">
 			
+				<g:if test="${formaPagoInstance?.depositos}">
+				<li class="fieldcontain">
+					<span id="depositos-label" class="property-label"><g:message code="formaPago.depositos.label" default="Depositos" /></span>
+					
+						<g:each in="${formaPagoInstance.depositos}" var="d">
+						<span class="property-value" aria-labelledby="depositos-label"><g:link controller="deposito" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${formaPagoInstance?.descuento}">
 				<li class="fieldcontain">
 					<span id="descuento-label" class="property-label"><g:message code="formaPago.descuento.label" default="Descuento" /></span>
@@ -64,6 +75,17 @@
 					<span id="monto-label" class="property-label"><g:message code="formaPago.monto.label" default="Monto" /></span>
 					
 						<span class="property-value" aria-labelledby="monto-label"><g:fieldValue bean="${formaPagoInstance}" field="monto"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formaPagoInstance?.tarjetas}">
+				<li class="fieldcontain">
+					<span id="tarjetas-label" class="property-label"><g:message code="formaPago.tarjetas.label" default="Tarjetas" /></span>
+					
+						<g:each in="${formaPagoInstance.tarjetas}" var="t">
+						<span class="property-value" aria-labelledby="tarjetas-label"><g:link controller="tarjeta" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

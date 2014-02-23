@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="concepto" title="${message(code: 'factura.concepto.label', default: 'Concepto')}" />
 					
+						<g:sortableColumn property="descuento" title="${message(code: 'factura.descuento.label', default: 'Descuento')}" />
+					
+						<g:sortableColumn property="efectivo" title="${message(code: 'factura.efectivo.label', default: 'Efectivo')}" />
+					
 						<g:sortableColumn property="fecha" title="${message(code: 'factura.fecha.label', default: 'Fecha')}" />
 					
-						<th><g:message code="factura.formaPago.label" default="Forma Pago" /></th>
-					
 						<g:sortableColumn property="grupo" title="${message(code: 'factura.grupo.label', default: 'Grupo')}" />
-					
-						<g:sortableColumn property="observaciones" title="${message(code: 'factura.observaciones.label', default: 'Observaciones')}" />
 					
 					</tr>
 				</thead>
@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: facturaInstance, field: "concepto")}</td>
 					
+						<td>${fieldValue(bean: facturaInstance, field: "descuento")}</td>
+					
+						<td>${fieldValue(bean: facturaInstance, field: "efectivo")}</td>
+					
 						<td><g:formatDate date="${facturaInstance.fecha}" /></td>
 					
-						<td>${fieldValue(bean: facturaInstance, field: "formaPago")}</td>
-					
 						<td>${fieldValue(bean: facturaInstance, field: "grupo")}</td>
-					
-						<td>${fieldValue(bean: facturaInstance, field: "observaciones")}</td>
 					
 					</tr>
 				</g:each>

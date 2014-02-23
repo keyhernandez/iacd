@@ -6,7 +6,7 @@ class Cheque {
     String banco
     Double monto
     
-     static belongsTo = [formaPago:FormaPago]
+     static belongsTo = [factura:Factura]
     static constraints = {
     }
 }

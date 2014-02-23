@@ -1,5 +1,8 @@
 <%@ page import="salias.Deposito" %>
 
+<g:if test="${!domainReference}">
+    <g:set var="domainReference" value=""/>
+</g:if>
 
 
 <div class="fieldcontain ${hasErrors(bean: depositoInstance, field: 'fecha', 'error')} required">
@@ -7,15 +10,7 @@
 		<g:message code="deposito.fecha.label" default="Fecha" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="fecha" precision="day"  value="${depositoInstance?.fecha}"  />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: depositoInstance, field: 'formaPago', 'error')} required">
-	<label for="formaPago">
-		<g:message code="deposito.formaPago.label" default="Forma Pago" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="formaPago" name="formaPago.id" from="${salias.FormaPago.list()}" optionKey="id" required="" value="${depositoInstance?.formaPago?.id}" class="many-to-one"/>
+	<g:datePicker name="${domainReference}fecha" precision="day"  value="${depositoInstance?.fecha}"  />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: depositoInstance, field: 'monto', 'error')} required">
@@ -23,7 +18,7 @@
 		<g:message code="deposito.monto.label" default="Monto" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="monto" value="${fieldValue(bean: depositoInstance, field: 'monto')}" required=""/>
+	<g:field name="${domainReference}monto" value="${fieldValue(bean: depositoInstance, field: 'monto')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: depositoInstance, field: 'numero', 'error')} ">
@@ -31,6 +26,6 @@
 		<g:message code="deposito.numero.label" default="Numero" />
 		
 	</label>
-	<g:textField name="numero" value="${depositoInstance?.numero}"/>
+	<g:textField name="${domainReference}numero" value="${depositoInstance?.numero}"/>
 </div>
 

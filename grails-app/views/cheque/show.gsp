@@ -32,11 +32,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${chequeInstance?.formaPago}">
+				<g:if test="${chequeInstance?.factura}">
 				<li class="fieldcontain">
-					<span id="formaPago-label" class="property-label"><g:message code="cheque.formaPago.label" default="Forma Pago" /></span>
+					<span id="factura-label" class="property-label"><g:message code="cheque.factura.label" default="Factura" /></span>
 					
-						<span class="property-value" aria-labelledby="formaPago-label"><g:link controller="formaPago" action="show" id="${chequeInstance?.formaPago?.id}">${chequeInstance?.formaPago?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="factura-label"><g:link controller="factura" action="show" id="${chequeInstance?.factura?.id}">${chequeInstance?.factura?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

@@ -1,33 +1,5 @@
 <%@ page import="salias.Factura" %>
 
-<script type="text/javascript">
-
-    function addChild() {
-
-    var htmlId = "numero";      
-
-        var deleteIcon = "${resource(dir:'images/skin', file:'icon_delete.png')}";      
-
-        var templateHtml = "<div id='" + htmlId + "' name='" + htmlId + "'>\n";
-
-    templateHtml += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-
-        templateHtml += "<input type='text' id='etiquetas[1]' name='numero[1]' />\n";
-
-        templateHtml += "<span onClick='$(\"#" + htmlId + "\").remove();'><img src='" + deleteIcon + "' /></span>\n";
-
-        templateHtml += "</div>\n";
-
-    $("#childList").append(templateHtml);
-
-    /*   var posicion= childCount;
-    * 
-
-    */   
-
-    }
-</script>
-
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'clase2', 'error')} required">
     <label for="clase2">
         <g:message code="factura.clase2.label" default="Clase2" />
@@ -41,7 +13,8 @@
         <g:message code="factura.concepto.label" default="Concepto" />
 
     </label>
-    <g:textField name="concepto" value="${facturaInstance?.concepto}"/>
+   <g:select name="concepto" from="${['Inscripción', 'Mensualidad']}" value="${facturaInstance?.concepto}" />
+    
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'fecha', 'error')} required">
@@ -83,18 +56,3 @@
     </label>
     <g:select id="persona" name="persona.id" from="${salias.Persona.list()}" optionKey="id" required="" value="${facturaInstance?.persona?.id}" class="many-to-one"/>
 </div>
-    <div>
-<input type="button" value="Añadir etiqueta"  />
-
-    </div>
-
- <div id="childList">
-
-    <g:each var="numero" in="${depositoInstance?.numero}" status="i">
-
-        <g:render template='numero' model="['numero':numero,'i':i]"/>  <!-- //se supone que aki inserta?? -->
-
-    </g:each>
-
-</div>
-

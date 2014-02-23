@@ -3,7 +3,7 @@ package salias
 class Tarjeta {
 String tipo
 Double monto
-static belongsTo = [formaPago:FormaPago]
+static belongsTo = [factura:Factura]
     static constraints = {
     }
 }

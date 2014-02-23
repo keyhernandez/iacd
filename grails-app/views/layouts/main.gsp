@@ -3,7 +3,7 @@
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"><!--<![endif]-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,6 +17,8 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js" data-dojo-config="parseOnLoad: true"></script>
     <script type="text/javascript" src="${resource(dir: 'js', file: 'myScripts.js')}"></script>
     <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery.js')}"></script>
+    
+<g:javascript library="jquery"/>
   <g:layoutHead/>
 
 

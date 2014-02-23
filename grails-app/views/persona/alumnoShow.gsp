@@ -23,7 +23,7 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <div id="container">
-<!--Pestaña 1 activa por defecto-->
+              <!--Pestaña 1 activa por defecto-->
                 <input id="tab-1" type="radio" name="tab-group" checked="checked" />
                 <label for="tab-1">Datos Personales</label>
                 <!--Pestaña 2 inactiva por defecto-->
@@ -32,20 +32,20 @@
                 <!--Pestaña 3 inactiva por defecto-->
                 <input id="tab-3" type="radio" name="tab-group" />
                 <label for="tab-3">Solvencia</label>
-      <!--Contenido a mostrar/ocultar-->
+                <!--Contenido a mostrar/ocultar-->
                 <div id="content">
-                 <!--Contenido de la Pestaña 1-->
+                  <!--Contenido de la Pestaña 1-->
                     <div id="content-1">
                         <table style="width:50em">
 
                             <g:if test="${personaInstance?.cedula}">
                                 <tr>
                                     <td>
-                                    <span id="cedula-label" class="property-label"><g:message code="persona.cedula.label" default="Cedula" /></span>
+                                        <span id="cedula-label" class="property-label"><g:message code="persona.cedula.label" default="Cedula" /></span>
 
                                     </td>
                                     <td>
-                                    <span class="property-value" aria-labelledby="cedula-label"><g:fieldValue bean="${personaInstance}" field="cedula"/></span>
+                                        <span class="property-value" aria-labelledby="cedula-label"><g:fieldValue bean="${personaInstance}" field="cedula"/></span>
 
                                     </td>
                                 </tr>
@@ -54,11 +54,11 @@
                             <g:if test="${personaInstance?.correo}">
                                 <tr>
                                     <td>
-                                    <span id="correo-label" class="property-label"><g:message code="persona.correo.label" default="Correo" /></span>
+                                        <span id="correo-label" class="property-label"><g:message code="persona.correo.label" default="Correo" /></span>
 
                                     </td>
                                     <td>
-                                    <span class="property-value" aria-labelledby="correo-label"><g:fieldValue bean="${personaInstance}" field="correo"/></span>
+                                        <span class="property-value" aria-labelledby="correo-label"><g:fieldValue bean="${personaInstance}" field="correo"/></span>
 
                                     </td>
                                 </tr>
@@ -67,11 +67,11 @@
                             <g:if test="${personaInstance?.fechaNac}">
                                 <tr>
                                     <td>
-                                    <span id="fechaNac-label" class="property-label"><g:message code="persona.fechaNac.label" default="Fecha de Nacimiento" /></span>
+                                        <span id="fechaNac-label" class="property-label"><g:message code="persona.fechaNac.label" default="Fecha de Nacimiento" /></span>
 
                                     </td>
                                     <td>
-                                    <span class="property-value" aria-labelledby="fechaNac-label"><g:formatDate format="dd/MM/yyyy" date="${personaInstance?.fechaNac}" /></span>
+                                        <span class="property-value" aria-labelledby="fechaNac-label"><g:formatDate format="dd/MM/yyyy" date="${personaInstance?.fechaNac}" /></span>
 
                                     </td>
                                 </tr>
@@ -80,11 +80,11 @@
                             <g:if test="${personaInstance?.nombre}">
                                 <tr>
                                     <td>
-                                    <span id="nombre-label" class="property-label"><g:message code="persona.nombre.label" default="Nombre" /></span>
+                                        <span id="nombre-label" class="property-label"><g:message code="persona.nombre.label" default="Nombre" /></span>
 
                                     </td>
                                     <td>
-                                    <span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${personaInstance}" field="nombre"/></span>
+                                        <span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${personaInstance}" field="nombre"/></span>
 
                                     </td>
                                 </tr>
@@ -94,11 +94,11 @@
                             <g:if test="${personaInstance?.plantilla}">
                                 <tr>
                                     <td>
-                                    <span id="plantilla-label" class="property-label"><g:message code="persona.plantilla.label" default="Plantilla" /></span>
+                                        <span id="plantilla-label" class="property-label"><g:message code="persona.plantilla.label" default="Plantilla" /></span>
 
                                     </td>
                                     <td>
-                                    <span class="property-value" aria-labelledby="plantilla-label"><g:fieldValue bean="${personaInstance}" field="plantilla"/></span>
+                                        <span class="property-value" aria-labelledby="plantilla-label"><g:fieldValue bean="${personaInstance}" field="plantilla"/></span>
 
                                     </td>
                                 </tr>
@@ -107,11 +107,11 @@
                             <g:if test="${personaInstance?.sexo}">
                                 <tr>
                                     <td>
-                                    <span id="sexo-label" class="property-label"><g:message code="persona.sexo.label" default="Sexo" /></span>
+                                        <span id="sexo-label" class="property-label"><g:message code="persona.sexo.label" default="Sexo" /></span>
 
                                     </td>
                                     <td>
-                                    <span class="property-value" aria-labelledby="sexo-label"><g:fieldValue bean="${personaInstance}" field="sexo"/></span>
+                                        <span class="property-value" aria-labelledby="sexo-label"><g:fieldValue bean="${personaInstance}" field="sexo"/></span>
 
                                     </td>
                                 </tr>
@@ -120,13 +120,13 @@
                             <g:if test="${personaInstance?.telefonos}">
                                 <tr>
                                     <td>
-                                    <span id="telefonos-label" class="property-label"><g:message code="persona.telefonos.label" default="Telefonos" /></span>
+                                        <span id="telefonos-label" class="property-label"><g:message code="persona.telefonos.label" default="Telefonos" /></span>
 
                                     </td>
                                     <td>
-                                    <g:each in="${personaInstance.telefonos}" var="t">
-                                        <span class="property-value" aria-labelledby="telefonos-label"><g:link controller="telefono" action="edit" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
-                                    </g:each>
+                                        <g:each in="${personaInstance.telefonos}" var="t">
+                                            <span class="property-value" aria-labelledby="telefonos-label"><g:link controller="telefono" action="edit" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+                                        </g:each>
 
                                     </td>
                                 </tr>
@@ -134,8 +134,90 @@
 
                         </table>
                     </div>
+                    <!-- Talleres Inscritos-->
+                    <div id="content-2">
+
+                        <g:if test="${Persona.talleresInscritos(personaInstance?.id)}">
+                            <li class="fieldcontain">
+
+
+                                <g:each in="${Persona.talleresInscritos(personaInstance.id)}" var="f">
+                                    <span class="property-value" aria-labelledby="facturas-label"><g:link controller="factura" action="show" id="${f.id}">${f?.clase2?.encodeAsHTML()}</g:link></span>
+                                </g:each>
+
+                            </li>
+                        </g:if>
+                        <g:else>
+
+                            <section class="message" role="status"><g:message code="persona.facturas.label" default="No posee talleres inscritos" /> </section>
+                            </g:else>
+                    </div>
+                    <!-- Solvencia-->
+                    <div id="content-3">
+                        <g:if test="${Persona.talleresInscritos(personaInstance?.id)}">
+
+
+
+                            <g:each in="${Persona.talleresInscritos(personaInstance.id)}" var="f">
+                                <h3>${f?.clase2?.encodeAsHTML()}${Persona.estaSolvente(f?.clase2?.id,personaInstance.id)} </h3><br>
+                                
+                                <h5>Inscripción:</h5>
+                                <table style="width:50em" class="tablaSolvencia">  
+                                    <tr>
+                                        <td>
+                                            Fecha de Inscripción
+                                        </td>
+                                        <td>
+                                            Monto Cancelado
+                                        </td>
+                                    </tr>
+                                    <td>
+                                        <span class="property-value" aria-labelledby="facturas-label">Fecha de Inscripción: </span>
+                                        <g:formatDate  date="${f.fecha}" />
+                                    </td>
+                                    <td>
+                                        <span class="property-value" aria-labelledby="facturas-label">Monto Cancelado: </span>
+                                    </td>
+                                    </tr>   
+                                </table>
+                                    <h5>Mensualidades:</h5>
+                                <table style="width:50em" class="tablaSolvencia">
+                                    <tr>
+                                        <td>
+                                            Fecha
+                                        </td>
+                                        <td>
+                                            Monto
+                                        </td>
+                                    </tr>
+                                    <g:each in="${Persona.pagosRealizados(f.clase2?.id,personaInstance.id)}" var="p">
+                                        <tr> 
+                                            <td>
+                                                <g:formatDate  date="${p.fecha}" />
+                                            </td>
+                                            <td>
+                                                3000
+                                            </td>
+                                        </tr>
+                                    </g:each>
+
+                                    </tr>
+                                </table>                                 
+                            </g:each>
+
+
+                        </g:if>
+                        
+                        <g:else>
+
+                            <section class="message" role="status"><g:message code="persona.facturas.label" default="No posee talleres inscritos" /> </section>
+                            </g:else>
+        
+                    </div>
+
                 </div>
             </div>
+            <a href="javascript:history.go(-1)">Atrás</a>
             <g:form>
                 <fieldset class="buttons">
                     <g:hiddenField name="id" value="${personaInstance?.id}" />

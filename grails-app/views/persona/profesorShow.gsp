@@ -130,6 +130,22 @@
 
                         </table>
                     </div>
+                  <div id="content-2">
+                  <g:if test="${personaInstance?.clases}">
+				<li class="fieldcontain">
+					
+					
+						<g:each in="${personaInstance.clases}" var="c">
+						<span class="property-value" aria-labelledby="clases-label"><g:link controller="clase" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+                     <g:else>
+                  
+                  <section class="message" role="status"><g:message code="persona.facturas.label" default="No posee talleres inscritos" /> </section>
+                   </g:else>
+                  </div>
                 </div>
             </div>
             <g:form>

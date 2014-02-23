@@ -26,7 +26,7 @@
 					
 						<g:sortableColumn property="banco" title="${message(code: 'cheque.banco.label', default: 'Banco')}" />
 					
-						<th><g:message code="cheque.formaPago.label" default="Forma Pago" /></th>
+						<th><g:message code="cheque.factura.label" default="Factura" /></th>
 					
 						<g:sortableColumn property="monto" title="${message(code: 'cheque.monto.label', default: 'Monto')}" />
 					
@@ -40,7 +40,7 @@
 					
 						<td><g:link action="show" id="${chequeInstance.id}">${fieldValue(bean: chequeInstance, field: "banco")}</g:link></td>
 					
-						<td>${fieldValue(bean: chequeInstance, field: "formaPago")}</td>
+						<td>${fieldValue(bean: chequeInstance, field: "factura")}</td>
 					
 						<td>${fieldValue(bean: chequeInstance, field: "monto")}</td>
 					

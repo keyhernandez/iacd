@@ -1,4 +1,6 @@
 package salias
+import groovy.time.TimeCategory
+import groovy.time.TimeDuration
 
 class Persona {
     static searchable = true 
@@ -31,5 +33,27 @@ class Persona {
     static profesores(){
         def profesor=Persona.findAllByTipoPersona("Profesor")
         return profesor
+    }
+    
+    static talleresInscritos(alumnoId)
+    {
+        def alumno = Persona.get(alumnoId)
+        return Factura.findAllByPersonaAndConcepto(alumno,"Inscripción")
+    }
+    
+    static pagosRealizados (claseId,alumnoId)
+    {
+        def clase=Clase.get(claseId)
+        def alumno = Persona.get(alumnoId)
+        return Factura.findAllByClase2AndConceptoAndPersona(clase,"Mensualidad",alumno)
+    }
+    
+    static estaSolvente(claseId,alumnoId)
+    {
+        def clase=Clase.get(claseId)
+        def alumno = Persona.get(alumnoId)
+        def facturas = Factura.findByClase2AndConceptoAndPersona(clase,"Mensualidad",alumno)
+        def meses = TimeCategory.minus(clase.fechaInicio,clase.fechaFin)
+       return meses.months
     }
 }

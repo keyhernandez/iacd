@@ -16,10 +16,9 @@ class FacturaController {
     }
 
     def create() {
-        [facturaInstance: new Factura(params)]
-    }
-    
-    def inscripcionCreate() {
+             params.tarjetas = [new Tarjeta()]
+             params.depositos = [new Deposito()]
+             params.cheques = [new Cheque()]
         [facturaInstance: new Factura(params)]
     }
 
@@ -74,6 +73,14 @@ class FacturaController {
             }
         }
 
+         // code change goes here
+        def removeList = elementsToRemoveFromList(params, "depositos", new Deposito(), formaPagoInstance.depositos)
+        formaPagoInstance.depositos.removeAll(removeList)
+         def removeList1 = elementsToRemoveFromList(params, "tarjetas", new Tarjeta(), formaPagoInstance.tarjetas)
+        formaPagoInstance.tarjetas.removeAll(removeList1)
+         def removeList2 = elementsToRemoveFromList(params, "cheques", new Cheque(), formaPagoInstance.cheques)
+        formaPagoInstance.cheques.removeAll(removeList2)
+        // code change ends here
         facturaInstance.properties = params
 
         if (!facturaInstance.save(flush: true)) {
@@ -102,5 +109,89 @@ class FacturaController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'factura.label', default: 'Factura'), id])
             redirect(action: "show", id: id)
         }
+    }
+    
+    
+     def addTarjeta(){
+        // add one address to the list of addresses
+        def facturaInstance = new Factura(params)
+        if (!facturaInstance.tarjetas)[
+            facturaInstance.tarjetas = []
+        ]
+        facturaInstance.tarjetas << new Tarjeta()
+        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
+    def removeTarjeta(){
+        // remove selected address from the list of addresses
+        def facturaInstance = new Factura(params)
+        def removeIx = params.removeIx
+        List tarjetas = facturaInstance.tarjetas.toArray()
+        def tarjeta = tarjetas.get(removeIx.toInteger())
+        facturaInstance.tarjetas.remove(tarjeta)
+        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
+      def addCheque(){
+        // add one address to the list of addresses
+        def facturaInstance = new Factura(params)
+        if (!facturaInstance.cheques)[
+            facturaInstance.cheques = []
+        ]
+        facturaInstance.cheques << new Cheque()
+        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
+    def removeCheque(){
+        // remove selected address from the list of addresses
+        def facturaInstance = new Factura(params)
+        def removeIx = params.removeIx
+        List cheques = facturaInstance.cheques.toArray()
+        def cheque = cheques.get(removeIx.toInteger())
+        facturaInstance.cheques.remove(cheque)
+        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
+      def addDeposito(){
+        // add one address to the list of addresses
+        def facturaInstance = new Factura(params)
+        if (!facturaInstance.depositos)[
+            facturaInstance.depositos = []
+        ]
+        facturaInstance.depositos << new Deposito()
+        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
+    def removeDeposito(){
+        // remove selected address from the list of addresses
+        def facturaInstance = new Factura(params)
+        def removeIx = params.removeIx
+        List depositos = facturaInstance.depositos.toArray()
+        def deposito = depositos.get(removeIx.toInteger())
+        facturaInstance.depositos.remove(deposito)
+        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+    }
+    
+    
+    /**
+     * Returns a list with elements which can be removed from the referencing entity
+     * @param params - the params which include the post parameters
+     * @param domainReference - the domain referenced which we named in the _form.gsp
+     * @param instanceTemplate - the object to select the referenced objects
+     * @param listToRemoveFrom - the list where the deleted/kept/new elements are in
+     * @return
+     */
+    def List elementsToRemoveFromList(params, domainReference, instanceTemplate, listToRemoveFrom) {
+        def listParamElement = params["${domainReference}[0]"]  
+        def removeList = new ArrayList(listToRemoveFrom)
+        for (int i = 1; listParamElement != null; i++){
+            log.debug "listParamElement: ${listParamElement}"
+            def instanceElement = instanceTemplate.get(listParamElement.id);
+            log.debug "instanceElement: ${instanceElement}"
+            removeList.remove(instanceElement)            
+            listParamElement = params["${domainReference}[${i}]"]
+        }
+        
+        return removeList
     }
 }

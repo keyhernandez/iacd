@@ -61,5 +61,6 @@ runtime: 'postgresql:postgresql:9.2-1003.jdbc4'
         compile ':cache:1.0.1'
     //    compile ':searchable-0.6.6' 
         compile ":spring-security-core:1.2.7.3"
+        compile ":ajaxdependancyselection:0.23"
     }
 }

@@ -1,4 +1,12 @@
 <%@ page import="salias.Clase" %>
+<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'fechaInicio', 'error')} required">
+	<label for="fechaInicio">
+		<g:message code="clase.fechaInicio.label" default="Fecha Inicio" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:datePicker name="fechaInicio" precision="day"  value="${claseInstance?.fechaInicio}"  />
+</div>
+
 
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'fechaFin', 'error')} required">
 	<label for="fechaFin">
@@ -8,13 +16,6 @@
 	<g:datePicker name="fechaFin" precision="day"  value="${claseInstance?.fechaFin}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'fechaInicio', 'error')} required">
-	<label for="fechaInicio">
-		<g:message code="clase.fechaInicio.label" default="Fecha Inicio" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="fechaInicio" precision="day"  value="${claseInstance?.fechaInicio}"  />
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'horario', 'error')} required">
 	<label for="horario">

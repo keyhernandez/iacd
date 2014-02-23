@@ -23,20 +23,20 @@
 			</g:if>
 			<ol class="property-list deposito">
 			
+				<g:if test="${depositoInstance?.factura}">
+				<li class="fieldcontain">
+					<span id="factura-label" class="property-label"><g:message code="deposito.factura.label" default="Factura" /></span>
+					
+						<span class="property-value" aria-labelledby="factura-label"><g:link controller="factura" action="show" id="${depositoInstance?.factura?.id}">${depositoInstance?.factura?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${depositoInstance?.fecha}">
 				<li class="fieldcontain">
 					<span id="fecha-label" class="property-label"><g:message code="deposito.fecha.label" default="Fecha" /></span>
 					
 						<span class="property-value" aria-labelledby="fecha-label"><g:formatDate date="${depositoInstance?.fecha}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${depositoInstance?.formaPago}">
-				<li class="fieldcontain">
-					<span id="formaPago-label" class="property-label"><g:message code="deposito.formaPago.label" default="Forma Pago" /></span>
-					
-						<span class="property-value" aria-labelledby="formaPago-label"><g:link controller="formaPago" action="show" id="${depositoInstance?.formaPago?.id}">${depositoInstance?.formaPago?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
