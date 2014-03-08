@@ -134,12 +134,13 @@ class FacturaController {
     
       def addCheque(){
         // add one address to the list of addresses
+        println "ads"+params
         def facturaInstance = new Factura(params)
         if (!facturaInstance.cheques)[
             facturaInstance.cheques = []
         ]
         facturaInstance.cheques << new Cheque()
-        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+        render template: "form" , model: [facturaInstance: facturaInstance, formId2: params.formId2, elementToReplace2: params.elementToReplace2]
     }
     
     def removeCheque(){
@@ -149,17 +150,18 @@ class FacturaController {
         List cheques = facturaInstance.cheques.toArray()
         def cheque = cheques.get(removeIx.toInteger())
         facturaInstance.cheques.remove(cheque)
-        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+        render template: "form" , model: [facturaInstance: facturaInstance, formId2: params.formId2, elementToReplace2: params.elementToReplace2]
     }
     
       def addDeposito(){
         // add one address to the list of addresses
+        
         def facturaInstance = new Factura(params)
         if (!facturaInstance.depositos)[
             facturaInstance.depositos = []
         ]
         facturaInstance.depositos << new Deposito()
-        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+        render template: "form" , model: [facturaInstance: facturaInstance, formId1: params.formId1, elementToReplace1: params.elementToReplace1]
     }
     
     def removeDeposito(){
@@ -169,7 +171,7 @@ class FacturaController {
         List depositos = facturaInstance.depositos.toArray()
         def deposito = depositos.get(removeIx.toInteger())
         facturaInstance.depositos.remove(deposito)
-        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
+        render template: "form" , model: [facturaInstance: facturaInstance, formId1: params.formId1, elementToReplace1: params.elementToReplace1]
     }
     
     

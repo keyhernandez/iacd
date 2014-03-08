@@ -107,6 +107,7 @@
 </div>
 
 
+<!--
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'depositos', 'error')} ">
 	<label for="depositos">
 		<g:message code="factura.depositos.label" default="Depositos" />
@@ -115,7 +116,7 @@
 	
 <%-- ajax link to add new entries --%>
 <input type="button" rel="nofollow" class="actionButton" href="javascript:void(0)" 
-    onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'addDeposito')}')" 
+    onclick="myScripts.ajaxPostReplace2('${formId1}', '${elementToReplace1}', '${createLink(action: 'addDeposito')}')" 
     value="${message(code: 'default.addNew.label', default:'+') }"/>
 <g:each in="${facturaInstance?.depositos?}" var="a" status="i">
     <div>
@@ -124,7 +125,7 @@
      <%-- ajax link to remove entries --%>
      <label class="fieldcontain"><g:message code="deposito.label" default="Deposito" /></label>
      <input type="button" class="actionButton" 
-             onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'removeDeposito', params:[removeIx: i])}')" 
+             onclick="myScripts.ajaxPostReplace2('${formId1}', '${elementToReplace1}', '${createLink(action: 'removeDeposito', params:[removeIx: i])}')" 
              value="${message(code: 'default.remove.label', default:'-') }"/>
      <g:hiddenField name="depositos[${i}].id" value="${a?.id}"/>
      <g:render template="/deposito/form" model="[depositoInstance: a]"/>
@@ -132,11 +133,10 @@
 </g:each>
 
 <%-- to restore the state of the form after ajax post/response --%>
-<g:hiddenField name="formId" value="${formId}"/>
-<g:hiddenField name="elementToReplace" value="${elementToReplace}"/>
+<g:hiddenField name="formId1" value="${formId1}"/>
+<g:hiddenField name="elementToReplace1" value="${elementToReplace1}"/>
 
 </div>
-
 
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'cheques', 'error')} ">
 	<label for="cheques">
@@ -146,7 +146,7 @@
 	
 <%-- ajax link to add new entries --%>
 <input type="button" rel="nofollow" class="actionButton" href="javascript:void(0)" 
-    onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'addCheque')}')" 
+    onclick="myScripts.ajaxPostReplace('${formId2}', '${elementToReplace2}', '${createLink(action: 'addCheque')}')" 
     value="${message(code: 'default.addNew.label', default:'+') }"/>
 <g:each in="${facturaInstance?.cheques?}" var="a" status="i">
     <div>
@@ -155,7 +155,7 @@
      <%-- ajax link to remove entries --%>
      <label class="fieldcontain"><g:message code="cheque.label" default="Cheque" /></label>
      <input type="button" class="actionButton" 
-             onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'removeCheque', params:[removeIx: i])}')" 
+             onclick="myScripts.ajaxPostReplace('${formId2}', '${elementToReplace2}', '${createLink(action: 'removeCheque', params:[removeIx: i])}')" 
              value="${message(code: 'default.remove.label', default:'-') }"/>
      <g:hiddenField name="cheques[${i}].id" value="${a?.id}"/>
      <g:render template="/cheque/form" model="[chequeInstance: a]"/>
@@ -163,7 +163,8 @@
 </g:each>
 
 <%-- to restore the state of the form after ajax post/response --%>
-<g:hiddenField name="formId" value="${formId}"/>
-<g:hiddenField name="elementToReplace" value="${elementToReplace}"/>
+<g:hiddenField name="formId2" value="${formId2}"/>
+<g:hiddenField name="elementToReplace2" value="${elementToReplace2}"/>
 
 </div>
+-->

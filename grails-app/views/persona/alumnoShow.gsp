@@ -159,18 +159,15 @@
 
 
                             <g:each in="${Persona.talleresInscritos(personaInstance.id)}" var="f">
-                                <h3>${f?.clase2?.encodeAsHTML()}${Persona.estaSolvente(f?.clase2?.id,personaInstance.id)} </h3><br>
-                                
-                                <h5>Inscripción:</h5>
-                                <table style="width:50em" class="tablaSolvencia">  
+                              
+                           
+                                <table style="width:40em" class="tablaSolvencia">  
                                     <tr>
-                                        <td>
-                                            Fecha de Inscripción
-                                        </td>
-                                        <td>
-                                            Monto Cancelado
+                                        <td colspan="2">
+                                            ${f?.clase2?.encodeAsHTML()}
                                         </td>
                                     </tr>
+                                    <tr>
                                     <td>
                                         <span class="property-value" aria-labelledby="facturas-label">Fecha de Inscripción: </span>
                                         <g:formatDate  date="${f.fecha}" />
@@ -178,34 +175,31 @@
                                     <td>
                                         <span class="property-value" aria-labelledby="facturas-label">Monto Cancelado: </span>
                                     </td>
-                                    </tr>   
-                                </table>
-                                    <h5>Mensualidades:</h5>
-                                <table style="width:50em" class="tablaSolvencia">
-                                    <tr>
-                                        <td>
-                                            Fecha
+                                        </tr>
+                                        <tr>
+                                         <td colspan="2">
+                                            Mensualidades Canceladas
                                         </td>
-                                        <td>
-                                            Monto
-                                        </td>
-                                    </tr>
-                                    <g:each in="${Persona.pagosRealizados(f.clase2?.id,personaInstance.id)}" var="p">
+                                        </tr>
+                                        <tr>
+                                         <g:each in="${Persona.pagosRealizados(f.clase2?.id,personaInstance.id)}" var="p">
                                         <tr> 
                                             <td>
-                                                <g:formatDate  date="${p.fecha}" />
+                                               <g:formatDate  date="${p.fecha}" />
                                             </td>
                                             <td>
-                                                3000
+                                                3000 Bs.
                                             </td>
                                         </tr>
                                     </g:each>
-
-                                    </tr>
-                                </table>                                 
+                                        </tr>
+                                </table>
+                                                        
                             </g:each>
 
-
+                         <div class="pagination">
+				<g:paginate total="10" />
+			</div>
                         </g:if>
                         
                         <g:else>

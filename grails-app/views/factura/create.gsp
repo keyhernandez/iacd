@@ -28,10 +28,12 @@
     </g:hasErrors>
 <%-- the form id to submit with the ajax link --%>
     <g:set value="createForm" var="formId"/>
-
+    <g:set value="createForm" var="formId1"/>
+     <g:set value="createForm" var="formId2"/>
 <%-- the element id to refresh the page wit the ajax response --%>
     <g:set value="elementToReplace" var="elementToReplace"/>
-    
+     <g:set value="elementToReplace1" var="elementToReplace1"/>
+     <g:set value="elementToReplace2" var="elementToReplace2"/>
     <g:form action="save" name="${formId}">
       <fieldset class="form" id="${elementToReplace}">
       

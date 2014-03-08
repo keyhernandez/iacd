@@ -955,9 +955,9 @@ input[type=checkbox] {
     border-width:0px 1px 1px 0px;
     text-align:left;
     padding:7px;
-    font-size:11px;
-    font-family:Trebuchet MS;
-    font-weight:bold;
+    font-size:0.8em;
+/*    font-family:Trebuchet MS;*/
+/*    font-weight:bold;*/
     color:#000000;
 }.tablaSolvencia tr:last-child td{
     border-width:0px 1px 0px 0px;
@@ -976,7 +976,7 @@ input[type=checkbox] {
     text-align:center;
     border-width:0px 0px 1px 1px;
     font-size:11px;
-    font-family:Trebuchet MS;
+/*    font-family:Trebuchet MS;*/
     font-weight:bold;
     color:#0a0909;
 }
