@@ -58,14 +58,21 @@ class PersonaController {
     }
 
     def show(Long id) {
-        def personaInstance = Persona.get(id)
+        /*   def personaInstance = Persona.get(id)
         if (!personaInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'persona.label', default: 'Persona'), id])
-            redirect(action: "list")
-            return
+        flash.message = message(code: 'default.not.found.message', args: [message(code: 'persona.label', default: 'Persona'), id])
+        redirect(action: "list")
+        return
         }
 
-        [personaInstance: personaInstance]
+        [personaInstance: personaInstance]*/
+        
+        if (Persona.esAlumno(id))
+        redirect (action:"alumnoShow",id:id)
+        else if (Persona.esProfesor(id))
+        redirect (action:"profesorShow",id:id)
+        else if (Persona.esEmpleado(id))
+        redirect (action:"empleadoShow",id:id)
     }
     
     def edit(Long id) {

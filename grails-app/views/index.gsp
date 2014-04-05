@@ -81,33 +81,9 @@ display: none;
     </style>
   </head>
   <body>
-    <a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-    <!--<div id="status" role="complementary">
-            <h1>Application Status</h1>
-            <ul>
-                    <li>App version: <g:meta name="app.version"/></li>
-                    <li>Grails version: <g:meta name="app.grails.version"/></li>
-                    <li>Groovy version: ${GroovySystem.getVersion()}</li>
-                    <li>JVM version: ${System.getProperty('java.version')}</li>
-                    <li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-                    <li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-                    <li>Domains: ${grailsApplication.domainClasses.size()}</li>
-                    <li>Services: ${grailsApplication.serviceClasses.size()}</li>
-                    <li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-            </ul>
-            <h1>Installed Plugins</h1>
-            <ul>
-<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                            <li>${plugin.name} - ${plugin.version}</li>
-</g:each>
-            </ul>
-    </div> -->
-
-
-
-
-
-    <div id="container">
+   
+    
+  <section id="container1">
       <!--Pestaña 1 activa por defecto-->
       <input id="tab-1" type="radio" name="tab-group" checked="checked" />
       <label for="tab-1">Talleres</label>
@@ -124,7 +100,7 @@ display: none;
         <label for="tab-5">Administración</label>
       </sec:ifAnyGranted>
       <!--Contenido a mostrar/ocultar-->
-      <div id="content">
+      <div id="content1">
         <!--Contenido de la Pestaña 1-->
         <div id="content-1">
           <g:render template="/index/talleres" />
@@ -152,6 +128,8 @@ display: none;
           </div>
         </sec:ifAnyGranted>
       </div>
-    </div>
-  </body>
+    </section>
+
+  
+ </body>
 </html>

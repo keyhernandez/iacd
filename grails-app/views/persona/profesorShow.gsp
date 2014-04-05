@@ -21,7 +21,7 @@
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <div id="container">
+            <div id="container1">
 <!--Pestaña 1 activa por defecto-->
                 <input id="tab-1" type="radio" name="tab-group" checked="checked" />
                 <label for="tab-1">Datos Personales</label>
@@ -29,7 +29,7 @@
                 <input id="tab-2" type="radio" name="tab-group" />
                 <label for="tab-2">Talleres Dictados</label>
       <!--Contenido a mostrar/ocultar-->
-                <div id="content">
+                <div id="content1">
                  <!--Contenido de la Pestaña 1-->
                     <div id="content-1">
                         <table style="width:50em">

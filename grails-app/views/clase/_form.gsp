@@ -1,4 +1,13 @@
 <%@ page import="salias.Clase" %>
+
+<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'taller', 'error')} required">
+	<label for="taller">
+		<g:message code="clase.taller.label" default="Taller" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="taller" name="taller.id" from="${salias.Taller.list()}" optionKey="id" required="" value="${claseInstance?.taller?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'fechaInicio', 'error')} required">
 	<label for="fechaInicio">
 		<g:message code="clase.fechaInicio.label" default="Fecha Inicio" />
@@ -6,8 +15,6 @@
 	</label>
 	<g:datePicker name="fechaInicio" precision="day"  value="${claseInstance?.fechaInicio}"  />
 </div>
-
-
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'fechaFin', 'error')} required">
 	<label for="fechaFin">
 		<g:message code="clase.fechaFin.label" default="Fecha Fin" />
@@ -30,15 +37,31 @@
 		<g:message code="clase.persona.label" default="Profesor" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="persona" name="persona.id" from="${salias.Persona.profesores()}" optionKey="id" required="" value="${claseInstance?.persona?.id}" class="many-to-one"/>
+	<g:select id="persona" name="persona.id" from="${salias.Persona.list()}" optionKey="id" required="" value="${claseInstance?.persona?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'tipoProfesor', 'error')} ">
+	<label for="tipoProfesor">
+		<g:message code="clase.tipoProfesor.label" default="Tipo Profesor" />
+		
+	</label>
+
+        <g:select  name="tipoProfesor" from="${['Principal','Suplente']}" required="" value="${claseInstance?.tipoProfesor}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'precio', 'error')} required">
 	<label for="precio">
-		<g:message code="clase.precio.label" default="Precio" />
+		<g:message code="clase.precio.label" default="Costo Inscripcion" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="precio" name="precio.id" from="${salias.Precio.list()}" optionKey="id" required="" value="${claseInstance?.precio?.id}" class="many-to-one"/>
+</div>
+<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'mensualidad', 'error')} required">
+	<label for="mensualidad">
+		<g:message code="clase.mensualidad.label" default="Costo Mensualidad" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="mensualidad" name="mensualidad.id" from="${salias.Precio.list()}" optionKey="id" required="" value="${claseInstance?.mensualidad?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'salon', 'error')} required">
@@ -49,19 +72,5 @@
 	<g:select id="salon" name="salon.id" from="${salias.Salon.list()}" optionKey="id" required="" value="${claseInstance?.salon?.id}" class="many-to-one"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'taller', 'error')} required">
-	<label for="taller">
-		<g:message code="clase.taller.label" default="Taller" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="taller" name="taller.id" from="${salias.Taller.list()}" optionKey="id" required="" value="${claseInstance?.taller?.id}" class="many-to-one"/>
-</div>
 
-<div class="fieldcontain ${hasErrors(bean: claseInstance, field: 'tipoProfesor', 'error')} ">
-	<label for="tipoProfesor">
-		<g:message code="clase.tipoProfesor.label" default="Tipo Profesor" />
-		
-	</label>
-        <g:select name="tipoProfesor" from="${['Principal', 'Suplente']}" value="${claseInstance?.tipoProfesor}" />
-</div>
 

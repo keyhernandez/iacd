@@ -30,11 +30,11 @@
 					
 						<th><g:message code="clase.horario.label" default="Horario" /></th>
 					
+						<th><g:message code="clase.mensualidad.label" default="Mensualidad" /></th>
+					
 						<th><g:message code="clase.persona.label" default="Persona" /></th>
 					
 						<th><g:message code="clase.precio.label" default="Precio" /></th>
-					
-						<th><g:message code="clase.salon.label" default="Salon" /></th>
 					
 					</tr>
 				</thead>
@@ -48,11 +48,11 @@
 					
 						<td>${fieldValue(bean: claseInstance, field: "horario")}</td>
 					
+						<td>${fieldValue(bean: claseInstance, field: "mensualidad")}</td>
+					
 						<td>${fieldValue(bean: claseInstance, field: "persona")}</td>
 					
 						<td>${fieldValue(bean: claseInstance, field: "precio")}</td>
-					
-						<td>${fieldValue(bean: claseInstance, field: "salon")}</td>
 					
 					</tr>
 				</g:each>

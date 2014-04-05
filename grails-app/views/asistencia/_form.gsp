@@ -7,7 +7,7 @@
 		<g:message code="asistencia.clase.label" default="Clase" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="clase" name="clase.id" from="${salias.Clase.list()}" optionKey="id" required="" value="${asistenciaInstance?.clase?.id}" class="many-to-one"/>
+	<g:select id="clase" name="clase.id" from="${salias.Clase.findById(asistenciaInstance?.clase?.id)}" optionKey="id" required="" value="${asistenciaInstance?.clase?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: asistenciaInstance, field: 'fecha', 'error')} required">
@@ -23,6 +23,6 @@
 		<g:message code="asistencia.persona.label" default="Persona" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="persona" name="persona.id" from="${salias.Persona.list()}" optionKey="id" required="" value="${asistenciaInstance?.persona?.id}" class="many-to-one"/>
+	<g:select id="persona" name="persona.id" from="${salias.Persona.get(asistenciaInstance?.persona?.id)}" optionKey="id" required="" value="${asistenciaInstance?.persona?.id}" class="many-to-one"/>
 </div>
 

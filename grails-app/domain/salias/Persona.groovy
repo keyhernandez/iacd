@@ -1,6 +1,7 @@
 package salias
 import groovy.time.TimeCategory
 import groovy.time.TimeDuration
+import java.util.Calendar
 
 class Persona {
     static searchable = true 
@@ -16,8 +17,8 @@ class Persona {
     List clases
     List facturas
     
-     static hasMany = [telefonos: Telefono,asistencias:Asistencia,clases:Clase,facturas:Factura]
-      static mapping = {
+    static hasMany = [telefonos: Telefono,asistencias:Asistencia,clases:Clase,facturas:Factura]
+    static mapping = {
         telefonos cascade: "all-delete-orphan"
     }
     static constraints = {
@@ -48,12 +49,76 @@ class Persona {
         return Factura.findAllByClase2AndConceptoAndPersona(clase,"Mensualidad",alumno)
     }
     
+    static asistenciasPorTaller(claseId,alumnoId)
+    {
+             
+        def clase=Clase.get(claseId)
+        def alumno = Persona.get(alumnoId)
+       
+        return Asistencia.findAllByPersonaAndClase(alumno,clase)
+    }
+    
     static estaSolvente(claseId,alumnoId)
     {
         def clase=Clase.get(claseId)
         def alumno = Persona.get(alumnoId)
-        def facturas = Factura.findByClase2AndConceptoAndPersona(clase,"Mensualidad",alumno)
-        def meses = TimeCategory.minus(clase.fechaInicio,clase.fechaFin)
-       return meses.months
+        def inscripcion = Factura.findByClase2AndConceptoAndPersona(clase,"Inscripción",alumno)
+        
+        def months
+        
+        if (new Date()>clase.fechaFin){
+            //    println "termino el curso"
+            def monthBetween = (clase.fechaFin[Calendar.MONTH] - inscripcion.fecha[Calendar.MONTH]) // + 1
+            def yearsBetween = clase.fechaFin[Calendar.YEAR] - inscripcion.fecha[Calendar.YEAR]
+            months = monthBetween + (yearsBetween * 12)
+
+            //   println "months 1 $months"
+        }
+        else
+        {
+            //  println "no ha terminado"
+        
+            
+            def monthBetween = (new Date()[Calendar.MONTH] - inscripcion.fecha[Calendar.MONTH]) //+ 1
+            def yearsBetween = new Date()[Calendar.YEAR] - inscripcion.fecha[Calendar.YEAR]
+            months = monthBetween + (yearsBetween * 12)
+            //  println "months 2 $months"
+        }
+        
+        def pagos = pagosRealizados(claseId,alumnoId).size() + 1
+       
+        //   println "pagos $pagos"
+        
+        if (pagos>=months)
+        return true
+        else
+        return false
+    }
+    
+    static esAlumno(personaId)
+    {
+        def persona = Persona.get(personaId)
+        if (persona.tipoPersona=='Alumno')
+            return true
+        else
+            return false
+    }
+    
+     static esProfesor(personaId)
+    {
+        def persona = Persona.get(personaId)
+        if (persona.tipoPersona=='Profesor')
+            return true
+        else
+            return false
+    }
+    
+     static esEmpleado(personaId)
+    {
+        def persona = Persona.get(personaId)
+        if (persona.tipoPersona=='Empleado')
+            return true
+        else
+            return false
     }
 }

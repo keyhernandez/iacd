@@ -18,6 +18,8 @@ class AsistenciaController {
     }
 
     def create() {
+        params.persona= Persona.get(params.foo)
+        params.clase = Clase.get(params.bar)
         [asistenciaInstance: new Asistencia(params)]
     }
 

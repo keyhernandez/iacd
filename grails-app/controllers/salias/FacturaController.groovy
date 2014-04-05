@@ -1,4 +1,6 @@
 package salias
+import salias.Clase
+import salias.Persona
 
 import org.springframework.dao.DataIntegrityViolationException
 
@@ -22,6 +24,15 @@ class FacturaController {
         [facturaInstance: new Factura(params)]
     }
 
+      def inscripcionCreate() {
+             params.tarjetas = [new Tarjeta()]
+             params.depositos = [new Deposito()]
+             params.cheques = [new Cheque()]
+             params.clase2 = Clase.get(params.bar)
+             params.persona = Persona.get(params.foo)
+            
+        [facturaInstance: new Factura(params)]
+    }
     def save() {
         def facturaInstance = new Factura(params)
         if (!facturaInstance.save(flush: true)) {
@@ -74,12 +85,12 @@ class FacturaController {
         }
 
          // code change goes here
-        def removeList = elementsToRemoveFromList(params, "depositos", new Deposito(), formaPagoInstance.depositos)
-        formaPagoInstance.depositos.removeAll(removeList)
-         def removeList1 = elementsToRemoveFromList(params, "tarjetas", new Tarjeta(), formaPagoInstance.tarjetas)
-        formaPagoInstance.tarjetas.removeAll(removeList1)
-         def removeList2 = elementsToRemoveFromList(params, "cheques", new Cheque(), formaPagoInstance.cheques)
-        formaPagoInstance.cheques.removeAll(removeList2)
+//        def removeList = elementsToRemoveFromList(params, "depositos", new Deposito(), formaPagoInstance.depositos)
+//        formaPagoInstance.depositos.removeAll(removeList)
+         def removeList1 = elementsToRemoveFromList(params, "tarjetas", new Tarjeta(), facturaInstance.tarjetas)
+        facturaInstance.tarjetas.removeAll(removeList1)
+//         def removeList2 = elementsToRemoveFromList(params, "cheques", new Cheque(), formaPagoInstance.cheques)
+//        formaPagoInstance.cheques.removeAll(removeList2)
         // code change ends here
         facturaInstance.properties = params
 
