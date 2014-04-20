@@ -1,6 +1,4 @@
 package salias
-import salias.Clase
-import salias.Persona
 
 import org.springframework.dao.DataIntegrityViolationException
 
@@ -18,22 +16,39 @@ class FacturaController {
     }
 
     def create() {
-             params.tarjetas = [new Tarjeta()]
-             params.depositos = [new Deposito()]
-             params.cheques = [new Cheque()]
-        [facturaInstance: new Factura(params)]
+        def alumno = Persona.get(params.foo)
+        def clase= Clase.get(params.bar)
+        def factura = new Factura(params)
+        factura.persona = alumno
+        factura.clase2 = clase
+        
+        [facturaInstance: factura]
+    }
+    
+    def inscripcionCreate() {
+     
+        def alumno = Persona.get(params.foo)
+        def clase= Clase.get(params.bar)
+        def factura = new Factura(params)
+        factura.persona = alumno
+        factura.clase2 = clase
+        [facturaInstance: factura]
     }
 
-      def inscripcionCreate() {
-             params.tarjetas = [new Tarjeta()]
-             params.depositos = [new Deposito()]
-             params.cheques = [new Cheque()]
-             params.clase2 = Clase.get(params.bar)
-             params.persona = Persona.get(params.foo)
-            
-        [facturaInstance: new Factura(params)]
+     def inscripcionSave() {
+       
+        def facturaInstance = new Factura(params)
+        if (!facturaInstance.save(flush: true)) {
+            render(view: "inscripcionCreate", model: [facturaInstance: facturaInstance])
+            return
+        }
+
+        flash.message = message(code: 'default.created.message', args: [message(code: 'factura.label', default: 'Factura'), facturaInstance.id])
+        redirect(action: "show", id: facturaInstance.id)
     }
+    
     def save() {
+        println params
         def facturaInstance = new Factura(params)
         if (!facturaInstance.save(flush: true)) {
             render(view: "create", model: [facturaInstance: facturaInstance])
@@ -65,6 +80,20 @@ class FacturaController {
 
         [facturaInstance: facturaInstance]
     }
+    
+    def transferencia() {
+        def alumno = Persona.get(params.foo)
+        def clase = Clase.get(params.bar)
+        def idFac = Factura.executeQuery("select id from Factura where persona="+alumno.id+" and clase2="+clase.id+" and concepto='Inscripción' and fecha=(select max(fecha) from Factura where persona="+alumno.id+" and clase2="+clase.id+" and concepto='Inscripción')")
+        def facturaInstance = Factura.get(idFac[0])
+        if (!facturaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'factura.label', default: 'Factura'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [facturaInstance: facturaInstance]
+    }
 
     def update(Long id, Long version) {
         def facturaInstance = Factura.get(id)
@@ -84,14 +113,6 @@ class FacturaController {
             }
         }
 
-         // code change goes here
-//        def removeList = elementsToRemoveFromList(params, "depositos", new Deposito(), formaPagoInstance.depositos)
-//        formaPagoInstance.depositos.removeAll(removeList)
-         def removeList1 = elementsToRemoveFromList(params, "tarjetas", new Tarjeta(), facturaInstance.tarjetas)
-        facturaInstance.tarjetas.removeAll(removeList1)
-//         def removeList2 = elementsToRemoveFromList(params, "cheques", new Cheque(), formaPagoInstance.cheques)
-//        formaPagoInstance.cheques.removeAll(removeList2)
-        // code change ends here
         facturaInstance.properties = params
 
         if (!facturaInstance.save(flush: true)) {
@@ -101,6 +122,53 @@ class FacturaController {
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'factura.label', default: 'Factura'), facturaInstance.id])
         redirect(action: "show", id: facturaInstance.id)
+    }
+    
+    def update2(Long id, Long version) {
+        println params
+        def facturaInstance = Factura.get(id)
+        def idclasOld=facturaInstance.clase2.id
+        def idclasNew=params.clase2.id
+        if (!facturaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'factura.label', default: 'Factura'), id])
+            redirect(action: "list")
+            return
+        }
+
+        if (version != null) {
+            if (facturaInstance.version > version) {
+                facturaInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+                          [message(code: 'factura.label', default: 'Factura')] as Object[],
+                          "Another user has updated this Factura while you were editing")
+                render(view: "edit", model: [facturaInstance: facturaInstance])
+                return
+            }
+        }
+
+        facturaInstance.properties = params
+
+        if (!facturaInstance.save(flush: true)) {
+            render(view: "edit", model: [facturaInstance: facturaInstance])
+            return
+        }
+
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'factura.label', default: 'Factura'), facturaInstance.id])
+        redirect(action: "show", id: facturaInstance.id)
+        
+        def pers = Factura.get(params.id)
+        def mensualidad = Factura.executeQuery(" select max(fecha)+'1 month' from Factura where concepto='Mensualidad' and persona="
+            +pers.persona.id+" and clase2="+idclasOld)
+        if (new Date()<=mensualidad[0]){
+            def idFac=Factura.executeQuery(" select id from Factura where concepto='Mensualidad' and persona="
+                +pers.persona.id+" and clase2="+idclasOld+" and fecha=(select max(fecha) from Factura where concepto='Mensualidad' and persona="
+                +pers.persona.id+" and clase2="+idclasOld+")")
+            def idFacMen= Factura.get(idFac[0])  
+            print idclasNew  
+            println params
+            idFacMen.clase2=Clase.get(idclasNew)
+            idFacMen.save(flush: true)
+            
+        }
     }
 
     def delete(Long id) {
@@ -120,91 +188,5 @@ class FacturaController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'factura.label', default: 'Factura'), id])
             redirect(action: "show", id: id)
         }
-    }
-    
-    
-     def addTarjeta(){
-        // add one address to the list of addresses
-        def facturaInstance = new Factura(params)
-        if (!facturaInstance.tarjetas)[
-            facturaInstance.tarjetas = []
-        ]
-        facturaInstance.tarjetas << new Tarjeta()
-        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
-    }
-    
-    def removeTarjeta(){
-        // remove selected address from the list of addresses
-        def facturaInstance = new Factura(params)
-        def removeIx = params.removeIx
-        List tarjetas = facturaInstance.tarjetas.toArray()
-        def tarjeta = tarjetas.get(removeIx.toInteger())
-        facturaInstance.tarjetas.remove(tarjeta)
-        render template: "form" , model: [facturaInstance: facturaInstance, formId: params.formId, elementToReplace: params.elementToReplace]
-    }
-    
-      def addCheque(){
-        // add one address to the list of addresses
-        println "ads"+params
-        def facturaInstance = new Factura(params)
-        if (!facturaInstance.cheques)[
-            facturaInstance.cheques = []
-        ]
-        facturaInstance.cheques << new Cheque()
-        render template: "form" , model: [facturaInstance: facturaInstance, formId2: params.formId2, elementToReplace2: params.elementToReplace2]
-    }
-    
-    def removeCheque(){
-        // remove selected address from the list of addresses
-        def facturaInstance = new Factura(params)
-        def removeIx = params.removeIx
-        List cheques = facturaInstance.cheques.toArray()
-        def cheque = cheques.get(removeIx.toInteger())
-        facturaInstance.cheques.remove(cheque)
-        render template: "form" , model: [facturaInstance: facturaInstance, formId2: params.formId2, elementToReplace2: params.elementToReplace2]
-    }
-    
-      def addDeposito(){
-        // add one address to the list of addresses
-        
-        def facturaInstance = new Factura(params)
-        if (!facturaInstance.depositos)[
-            facturaInstance.depositos = []
-        ]
-        facturaInstance.depositos << new Deposito()
-        render template: "form" , model: [facturaInstance: facturaInstance, formId1: params.formId1, elementToReplace1: params.elementToReplace1]
-    }
-    
-    def removeDeposito(){
-        // remove selected address from the list of addresses
-        def facturaInstance = new Factura(params)
-        def removeIx = params.removeIx
-        List depositos = facturaInstance.depositos.toArray()
-        def deposito = depositos.get(removeIx.toInteger())
-        facturaInstance.depositos.remove(deposito)
-        render template: "form" , model: [facturaInstance: facturaInstance, formId1: params.formId1, elementToReplace1: params.elementToReplace1]
-    }
-    
-    
-    /**
-     * Returns a list with elements which can be removed from the referencing entity
-     * @param params - the params which include the post parameters
-     * @param domainReference - the domain referenced which we named in the _form.gsp
-     * @param instanceTemplate - the object to select the referenced objects
-     * @param listToRemoveFrom - the list where the deleted/kept/new elements are in
-     * @return
-     */
-    def List elementsToRemoveFromList(params, domainReference, instanceTemplate, listToRemoveFrom) {
-        def listParamElement = params["${domainReference}[0]"]  
-        def removeList = new ArrayList(listToRemoveFrom)
-        for (int i = 1; listParamElement != null; i++){
-            log.debug "listParamElement: ${listParamElement}"
-            def instanceElement = instanceTemplate.get(listParamElement.id);
-            log.debug "instanceElement: ${instanceElement}"
-            removeList.remove(instanceElement)            
-            listParamElement = params["${domainReference}[${i}]"]
-        }
-        
-        return removeList
     }
 }

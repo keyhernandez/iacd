@@ -19,17 +19,10 @@
 </head>
 <body>
   <a href="#create-persona" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-  <div class="nav" role="navigation">
-    <ul>
-      <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-      <li><g:link class="list" action="alumnoList">Listar Alumnos</g:link></li>
-    </ul>
-  </div>
+ 
   <div id="create-persona" class="content scaffold-create" role="main">
     <h1>Registrar Alumno</h1>
-    <g:if test="${flash.message}">
-      <div class="message" role="status">${flash.message}</div>
-    </g:if>
+ 
     <g:hasErrors bean="${personaInstance}">
       <ul class="errors" role="alert">
         <g:eachError bean="${personaInstance}" var="error">
@@ -51,7 +44,7 @@
           <g:submitButton name="create" class="btn btn-default btn-success" value="${message(code: 'default.button.create.label', default: 'Create')}" />	
         </div>
       </div>
-      
+
     </g:form>
   </div>
 </body>

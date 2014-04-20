@@ -21,6 +21,7 @@ class AsistenciaController {
         params.persona= Persona.get(params.foo)
         params.clase = Clase.get(params.bar)
         [asistenciaInstance: new Asistencia(params)]
+       
     }
 
     def save() {
@@ -31,7 +32,7 @@ class AsistenciaController {
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'asistencia.label', default: 'Asistencia'), asistenciaInstance.id])
-        redirect(action: "show", id: asistenciaInstance.id)
+        redirect(controller:"Persona",action: "show", id: asistenciaInstance.persona.id)
     }
 
     def show(Long id) {

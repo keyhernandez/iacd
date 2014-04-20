@@ -8,8 +8,7 @@
      
       <ul>
         <li><a class="list" href="${createLink(controller:'Persona',action:'profesorCreate')}">Registrar Profesor</a></li>
-         <li><a class="list" href="${createLink(controller:'Asistencia',action:'create')}">Registrar Asistencia</a></li>
-        <li><a class="list" href="${createLink(controller:'Taller',action:'create')}">Registrar pago a profesor</a></li>
+
         <li><a class="list" href="${createLink(controller:'Persona',action:'profesorList')}">Ver Profesores</a></li>
       </ul>
     </section>

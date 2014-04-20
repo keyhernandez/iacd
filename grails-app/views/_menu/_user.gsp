@@ -6,18 +6,18 @@
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			<!-- TODO: integrate Springsource Security etc. and show User's name ... -->
     		<i class="icon-user"></i>
-    		<g:message code="security.signin.label"/><b class="caret"></b>
+    		Login<b class="caret"></b>
 		</a>
 
 		<ul class="dropdown-menu" role="menu">
 			<li class="form-container">
 				<g:form controller="login" uri="/j_spring_security_check" method='POST' id='loginForm' class='cssform' autocomplete='off'>
 <%--				<form action="login" method="post" accept-charset="UTF-8">--%>
-					<input class="form-control" style="margin-bottom: 15px;" type="text"		placeholder="Username" id="username" name='j_username'>
+					<input class="form-control" style="margin-bottom: 15px;" type="text"		placeholder="Usuario" id="username" name='j_username'>
 					<input class="form-control" style="margin-bottom: 15px;" type="password"	placeholder="Password" id="password" name='j_password'>
 					<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
-					<label class="string optional" for="user_remember_me"> Remember me</label>
-					<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In" id="submit" >
+					
+					<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Ingresar" id="submit" >
 				</g:form>
 			</li>
 			<li class="divider"></li>

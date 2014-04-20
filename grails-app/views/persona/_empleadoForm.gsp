@@ -3,36 +3,45 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'nombre', 'error')} ">
-    <label for="nombre">
-        <g:message code="persona.nombre.label" default="Nombre" />
-
-    </label>
-    <g:textField name="nombre" value="${personaInstance?.nombre}"/>
+<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'nombre', 'error')}  form-group">
+	<label for="nombre" class="col-lg-4 control-label">
+		<g:message code="persona.nombre.label" default="Nombre" />
+		
+	</label>
+	<div class="col-lg-4">
+	<g:textField class="form-control" name="nombre" value="${personaInstance?.nombre}"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'plantilla', 'error')} ">
-    <label for="plantilla">
-        <g:message code="persona.plantilla.label" default="Plantilla" />
-
-    </label>
-    <g:textField name="plantilla" value="${personaInstance?.plantilla}"/>
+<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'plantilla', 'error')}  form-group">
+	<label for="plantilla" class="col-lg-4 control-label">
+		<g:message code="persona.plantilla.label" default="Plantilla" />
+		
+	</label>
+	<div class="col-lg-4">
+	<g:textField class="form-control" name="plantilla" value="${personaInstance?.plantilla}"/>
+	</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'cedula', 'error')} ">
-    <label for="cedula">
+
+<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'cedula', 'error')} form-group">
+    <label for="cedula" class="col-lg-4 control-label">
         <g:message code="persona.cedula.label" default="Cedula" />
 
     </label>
-    <g:textField name="cedula" value="${personaInstance?.cedula}"/>
+  <div class="col-lg-4">
+    <g:textField class="form-control" name="cedula" value="${personaInstance?.cedula}"/>
+  </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'correo', 'error')} ">
-    <label for="correo">
+<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'correo', 'error')} form-group">
+    <label for="correo" class="col-lg-4 control-label">
         <g:message code="persona.correo.label" default="Correo" />
 
     </label>
-    <g:textField name="correo" value="${personaInstance?.correo}"/>
+  <div class="col-lg-4">
+    <g:textField class="form-control" name="correo" value="${personaInstance?.correo}"/>
+</div>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'tipoPersona', 'error')} ">
@@ -47,12 +56,14 @@
     <g:datePicker name="fechaNac" precision="day" relativeYears="[-4..-100]"  value="${personaInstance?.fechaNac}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'sexo', 'error')} ">
-    <label for="sexo">
+<div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'sexo', 'error')} form-group">
+    <label for="sexo" class="col-lg-4 control-label">
         <g:message code="persona.sexo.label" default="Sexo" />
 
     </label>
-        <g:select name="sexo" from="${['Femenino', 'Masculino']}" value="${personaInstance?.sexo}" />
+  <div class="col-lg-4">    
+  <g:select name="sexo" from="${['Femenino', 'Masculino']}" value="${personaInstance?.sexo}" class="form-control" />
+</div>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: personaInstance, field: 'telefonos', 'error')} ">

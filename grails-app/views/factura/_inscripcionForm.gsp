@@ -1,172 +1,89 @@
 <%@ page import="salias.Factura" %>
 
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'persona', 'error')} required">
-	<label for="persona">
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'persona', 'error')} required form-group">
+	<label for="persona" class="col-lg-4 control-label">
 		<g:message code="factura.persona.label" default="Alumno" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="persona" name="persona.id" from="${salias.Persona.findById(facturaInstance?.persona?.id)}" optionKey="id" required="" value="${facturaInstance?.persona?.id}" class="many-to-one"/>
+                <div class="col-lg-6">
+                    <p id="persona" name="persona.id" class="form-control-static">${facturaInstance?.persona}</p>
+                <g:hiddenField id="persona" name="persona.id" value="${facturaInstance?.persona?.id}" />
+                </div>
 </div>
 
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'clase2', 'error')} required">
-	<label for="clase2">
-		<g:message code="factura.clase2.label" default="Taller" />
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'clase2', 'error')} required form-group">
+	<label for="clase2" class="col-lg-4 control-label">
+		<g:message code="factura.clase2.label" default="Clase" />
 		<span class="required-indicator">*</span>
 	</label>
-
-	<g:select id="clase2" name="clase2.id" from="${salias.Clase.findAllById(facturaInstance?.clase2?.id)}" optionKey="id" required="" value="${facturaInstance?.clase2?.id}" class="many-to-one"/>
+        <div class="col-lg-6">
+                    <p id="clase2" name="clase2.id" class="form-control-static">${facturaInstance?.clase2}</p>
+        <g:hiddenField name="clase2.id" value="${facturaInstance?.clase2?.id}"/>        
+        </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'concepto', 'error')} ">
-	<label for="concepto">
-		<g:message code="factura.concepto.label" default="Concepto" />
-		
-	</label>
-	
-         <g:select  name="concepto" from="${['Inscripción','Mensualidad']}" required="" value="${facturaInstance?.concepto}" />
-</div>
+  <g:hiddenField name="concepto" value="Inscripción"/>
+  
 
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'descuento', 'error')} required">
-	<label for="descuento">
-		<g:message code="factura.descuento.label" default="Descuento" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="descuento" type="number" value="${facturaInstance.descuento}" required=""/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'efectivo', 'error')} required">
-	<label for="efectivo">
-		<g:message code="factura.efectivo.label" default="Efectivo" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="efectivo" value="${fieldValue(bean: facturaInstance, field: 'efectivo')}" required=""/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'fecha', 'error')} required">
-	<label for="fecha">
+  
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'fecha', 'error')} required form-group">
+	<label for="fecha" class="col-lg-4 control-label">
 		<g:message code="factura.fecha.label" default="Fecha" />
 		<span class="required-indicator">*</span>
 	</label>
+  <div class="col-lg-4">
 	<g:datePicker name="fecha" precision="day"  value="${facturaInstance?.fecha}"  />
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'grupo', 'error')} ">
-	<label for="grupo">
-		<g:message code="factura.grupo.label" default="Grupo" />
-		
-	</label>
-	<g:textField name="grupo" value="${facturaInstance?.grupo}"/>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'monto', 'error')} required">
-	<label for="monto">
+  
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'monto', 'error')} required form-group">
+	<label for="monto" class="col-lg-4 control-label">
 		<g:message code="factura.monto.label" default="Monto" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="monto" value="${fieldValue(bean: facturaInstance, field: 'monto')}" required=""/>
+  <div class="col-lg-4">
+	<g:field name="monto" value="${fieldValue(bean: facturaInstance, field: 'monto')}" required="" class="form-control"/>
+</div>
+</div>
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'descuento', 'error')} required form-group">
+	<label for="descuento" class="col-lg-4 control-label">
+		<g:message code="factura.descuento.label" default="Descuento" />
+		<span class="required-indicator">*</span>
+	</label>
+  <div class="col-lg-4">
+	<g:field name="descuento" type="number" value="${facturaInstance.descuento}" required="" class="form-control"/>
+</div>
+</div>
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'grupo', 'error')} form-group">
+	<label for="grupo" class="col-lg-4 control-label">
+		<g:message code="factura.grupo.label" default="Grupo" />
+		
+	</label>
+  <div class="col-lg-4">
+	<g:textField name="grupo" value="${facturaInstance?.grupo}" class="form-control"/>
+</div>
+</div>
+  
+
+  
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'tipoPago', 'error')} required form-group">
+	<label for="tipoPago" class="col-lg-4 control-label">
+		<g:message code="factura.tipoPago.label" default="Tipo Pago" />
+		<span class="required-indicator">*</span>
+	</label>
+  <div class="col-lg-4">
+	
+        <g:select name="tipoPago" from="${['Efectivo','Tarjeta','Depósito','Cheque']}" value="${facturaInstance?.tipoPago}" class="form-control"/>
+</div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'observaciones', 'error')} ">
-	<label for="observaciones">
+  
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'observaciones', 'error')} form-group">
+	<label for="observaciones" class="col-lg-4 control-label">
 		<g:message code="factura.observaciones.label" default="Observaciones" />
 		
 	</label>
-	<g:textField name="observaciones" value="${facturaInstance?.observaciones}"/>
+  <div class="col-lg-4">
+	<g:textArea name="observaciones" value="${facturaInstance?.observaciones}" class="form-control"/>
 </div>
-
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'tarjetas', 'error')} ">
-	<label for="tarjetas">
-		<g:message code="factura.tarjetas.label" default="Tarjetas" />
-		
-	</label>
-	
-<%-- ajax link to add new entries --%>
-<input type="button" rel="nofollow" class="actionButton" href="javascript:void(0)" 
-    onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'addTarjeta')}')" 
-    value="${message(code: 'default.addNew.label', default:'+') }"/>
-<g:each in="${facturaInstance?.tarjetas?}" var="a" status="i">
-    <div>
-     <%-- set the domain reference that it can be mapped by the controller --%>
-     <g:set var="domainReference" value="tarjetas[${i}]."/>
-     <%-- ajax link to remove entries --%>
-     <label class="fieldcontain"><g:message code="tarjeta.label" default="Tarjeta" /></label>
-     <input type="button" class="actionButton" 
-             onclick="myScripts.ajaxPostReplace('${formId}', '${elementToReplace}', '${createLink(action: 'removeTarjeta', params:[removeIx: i])}')" 
-             value="${message(code: 'default.remove.label', default:'-') }"/>
-     <g:hiddenField name="tarjetas[${i}].id" value="${a?.id}"/>
-     <g:render template="/tarjeta/form" model="[tarjetaInstance: a]"/>
-    </div>
-</g:each>
-
-<%-- to restore the state of the form after ajax post/response --%>
-<g:hiddenField name="formId" value="${formId}"/>
-<g:hiddenField name="elementToReplace" value="${elementToReplace}"/>
-
 </div>
-
-
-<!--
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'depositos', 'error')} ">
-	<label for="depositos">
-		<g:message code="factura.depositos.label" default="Depositos" />
-		
-	</label>
-	
-<%-- ajax link to add new entries --%>
-<input type="button" rel="nofollow" class="actionButton" href="javascript:void(0)" 
-    onclick="myScripts.ajaxPostReplace2('${formId1}', '${elementToReplace1}', '${createLink(action: 'addDeposito')}')" 
-    value="${message(code: 'default.addNew.label', default:'+') }"/>
-<g:each in="${facturaInstance?.depositos?}" var="a" status="i">
-    <div>
-     <%-- set the domain reference that it can be mapped by the controller --%>
-     <g:set var="domainReference" value="depositos[${i}]."/>
-     <%-- ajax link to remove entries --%>
-     <label class="fieldcontain"><g:message code="deposito.label" default="Deposito" /></label>
-     <input type="button" class="actionButton" 
-             onclick="myScripts.ajaxPostReplace2('${formId1}', '${elementToReplace1}', '${createLink(action: 'removeDeposito', params:[removeIx: i])}')" 
-             value="${message(code: 'default.remove.label', default:'-') }"/>
-     <g:hiddenField name="depositos[${i}].id" value="${a?.id}"/>
-     <g:render template="/deposito/form" model="[depositoInstance: a]"/>
-    </div>
-</g:each>
-
-<%-- to restore the state of the form after ajax post/response --%>
-<g:hiddenField name="formId1" value="${formId1}"/>
-<g:hiddenField name="elementToReplace1" value="${elementToReplace1}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'cheques', 'error')} ">
-	<label for="cheques">
-		<g:message code="factura.cheques.label" default="Cheques" />
-		
-	</label>
-	
-<%-- ajax link to add new entries --%>
-<input type="button" rel="nofollow" class="actionButton" href="javascript:void(0)" 
-    onclick="myScripts.ajaxPostReplace('${formId2}', '${elementToReplace2}', '${createLink(action: 'addCheque')}')" 
-    value="${message(code: 'default.addNew.label', default:'+') }"/>
-<g:each in="${facturaInstance?.cheques?}" var="a" status="i">
-    <div>
-     <%-- set the domain reference that it can be mapped by the controller --%>
-     <g:set var="domainReference" value="cheques[${i}]."/>
-     <%-- ajax link to remove entries --%>
-     <label class="fieldcontain"><g:message code="cheque.label" default="Cheque" /></label>
-     <input type="button" class="actionButton" 
-             onclick="myScripts.ajaxPostReplace('${formId2}', '${elementToReplace2}', '${createLink(action: 'removeCheque', params:[removeIx: i])}')" 
-             value="${message(code: 'default.remove.label', default:'-') }"/>
-     <g:hiddenField name="cheques[${i}].id" value="${a?.id}"/>
-     <g:render template="/cheque/form" model="[chequeInstance: a]"/>
-    </div>
-</g:each>
-
-<%-- to restore the state of the form after ajax post/response --%>
-<g:hiddenField name="formId2" value="${formId2}"/>
-<g:hiddenField name="elementToReplace2" value="${elementToReplace2}"/>
-
-</div>
--->

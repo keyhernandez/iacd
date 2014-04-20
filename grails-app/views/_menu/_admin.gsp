@@ -5,10 +5,10 @@
 			<g:message code="default.admin.label"/><b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu">
-			<li class="">
-				<a tabindex="-1" href="#"><b>Technical Admin</b></a>
-			</li>
-			<g:if env="development">
+			<li class="controller"><g:link controller="SecUser"><span class="glyphicon glyphicon-user"></span> Usuarios</g:link></li>
+		<li class="controller"><g:link controller="SecRole"><span class="glyphicon glyphicon-star"></span> Roles</g:link></li>
+        <li class="controller"><g:link controller="SecUserSecRole"><span class="glyphicon glyphicon-eye-open"></span> Privilegios</g:link></li>
+                <g:if env="development">
 			<li class="">
 				<a href="${createLink(uri: '/dbconsole')}">
 					<i class="icon-dashboard"></i>

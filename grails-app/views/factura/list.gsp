@@ -9,17 +9,10 @@
 	</head>
 	<body>
 		<a href="#list-factura" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		
 		<div id="list-factura" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
+			
 			<table>
 				<thead>
 					<tr>
@@ -30,11 +23,11 @@
 					
 						<g:sortableColumn property="descuento" title="${message(code: 'factura.descuento.label', default: 'Descuento')}" />
 					
-						<g:sortableColumn property="efectivo" title="${message(code: 'factura.efectivo.label', default: 'Efectivo')}" />
-					
 						<g:sortableColumn property="fecha" title="${message(code: 'factura.fecha.label', default: 'Fecha')}" />
 					
 						<g:sortableColumn property="grupo" title="${message(code: 'factura.grupo.label', default: 'Grupo')}" />
+					
+						<g:sortableColumn property="monto" title="${message(code: 'factura.monto.label', default: 'Monto')}" />
 					
 					</tr>
 				</thead>
@@ -48,11 +41,11 @@
 					
 						<td>${fieldValue(bean: facturaInstance, field: "descuento")}</td>
 					
-						<td>${fieldValue(bean: facturaInstance, field: "efectivo")}</td>
-					
 						<td><g:formatDate date="${facturaInstance.fecha}" /></td>
 					
 						<td>${fieldValue(bean: facturaInstance, field: "grupo")}</td>
+					
+						<td>${fieldValue(bean: facturaInstance, field: "monto")}</td>
 					
 					</tr>
 				</g:each>

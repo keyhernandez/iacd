@@ -8,9 +8,7 @@
      
       <ul>
         <li><a class="list" href="${createLink(controller:'Persona',action:'alumnoCreate')}">Registrar Alumno</a></li>
-        <li><a class="list" href="${createLink(controller:'Factura',action:'create')}">Inscribir Alumno en Taller</a></li>
-        <li><a class="list" href="${createLink(controller:'Factura',action:'create')}">Registrar Pago</a></li>
-         <li><a class="list" href="${createLink(controller:'Asistencia',action:'create')}">Registrar Asistencia</a></li>
+   
         <li><a class="list" href="${createLink(controller:'Persona',action:'alumnoList')}">Ver Detalle de Alumno</a></li>
       </ul>
     </section>

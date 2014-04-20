@@ -64,7 +64,10 @@ line-height: 1.3;
 list-style-position: inside;
 margin: 0.25em 0;
 }
-
+.without-top {
+  padding-top:30px;
+}
+    
 @media screen and (max-width: 480px) {
 #status {
 display: none;
@@ -83,7 +86,7 @@ display: none;
   <body>
    
     
-  <section id="container1">
+  <section id="container1" class="without-top">
       <!--Pestaña 1 activa por defecto-->
       <input id="tab-1" type="radio" name="tab-group" checked="checked" />
       <label for="tab-1">Talleres</label>
@@ -95,10 +98,7 @@ display: none;
       <label for="tab-3">Profesores</label>
       <input id="tab-4" type="radio" name="tab-group" />
       <label for="tab-4">Empleado</label>
-      <sec:ifAnyGranted roles="ROLE_ADMIN">
-        <input id="tab-5" type="radio" name="tab-group" />
-        <label for="tab-5">Administración</label>
-      </sec:ifAnyGranted>
+      
       <!--Contenido a mostrar/ocultar-->
       <div id="content1">
         <!--Contenido de la Pestaña 1-->
@@ -120,13 +120,7 @@ display: none;
           <p class="column-left"><img src="${resource(dir: 'images', file: 'salias.jpg')}" alt="">Lorem ipsisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>
         </div>
         <!--Contenido de la Pestaña 3-->
-        <sec:ifAnyGranted roles="ROLE_ADMIN">
-
-          <div id="content-5">
-            <g:render template="/index/administracion" />
-
-          </div>
-        </sec:ifAnyGranted>
+       
       </div>
     </section>
 
