@@ -19,7 +19,7 @@
 	</label>
   <div class="col-lg-6">
                     <p  class="form-control-static" >${new Date().format('dd/MM/yyyy')}</p>
-  <g:hiddenField id="fecha"  name="fecha"   value="${g.formatDate(value:new Date(), format:'dd/MM/yy')}"/>       
+  <g:hiddenField id="fecha"  name="fecha"   value="${g.formatDate(value:new Date(), format:'dd/MM/yyyy')}"/>       
   </div>
 </div>
 
