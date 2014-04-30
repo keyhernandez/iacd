@@ -1,10 +1,12 @@
 package salias
 
 import org.springframework.dao.DataIntegrityViolationException
+import org.compass.core.engine.SearchEngineQueryParseException
 
 class FacturaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    def exportService
 
     def index() {
         redirect(action: "list", params: params)
@@ -15,6 +17,42 @@ class FacturaController {
         [facturaInstanceList: Factura.list(params), facturaInstanceTotal: Factura.count()]
     }
 
+    def listByClass(Integer max,Long id) {
+        println params
+        params.max = Math.min(max ?: 10, 100)
+        def clase=Clase.get(id)
+        def inscritos = Factura.findAllByClase2(clase)
+        
+        println params
+        println inscritos
+        def fecha = new Date()
+        params.sort = "nombre"
+        params.order = "asc"
+        params.max = Math.min(max ?: 10, 100)
+        if(!params.max) params.max = 10
+        if(params?.format && params.format != "html"){
+            response.contentType = grailsApplication.config.grails.mime.types[params.format]
+            response.setHeader("Content-disposition", "attachment; filename=asistencia${fecha.format('dd-MM-yyyy')}.${params.extension}")
+
+            List fields = ["clase", "alumno","solvencia"]
+            Map labels = ["clase2":"Clase", "persona":"Alumno","solvencia":"Solvencia"]
+
+            // Formatter closure
+            def upperCase = { domain, value ->
+                return value.toUpperCase()
+            }
+
+            Map formatters = [nombre: upperCase]		
+            Map parameters = [title: "IACD. Asistencia", "column.widths": [0.3, 0.2, 0.3]]
+                    
+            // Empresa.list(sort:'nombre',order:'asc')
+            exportService.export(params.format, response.outputStream, inscritos, fields, labels, formatters, parameters)
+        }
+       
+        
+        
+        [facturaInstanceList: inscritos, facturaInstanceTotal: inscritos.size(),claseInstance:clase]
+    }
     def create() {
         def alumno = Persona.get(params.foo)
         def clase= Clase.get(params.bar)
@@ -35,7 +73,7 @@ class FacturaController {
         [facturaInstance: factura]
     }
 
-     def inscripcionSave() {
+    def inscripcionSave() {
        
         def facturaInstance = new Factura(params)
         if (!facturaInstance.save(flush: true)) {
@@ -106,7 +144,7 @@ class FacturaController {
         if (version != null) {
             if (facturaInstance.version > version) {
                 facturaInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'factura.label', default: 'Factura')] as Object[],
+                    [message(code: 'factura.label', default: 'Factura')] as Object[],
                           "Another user has updated this Factura while you were editing")
                 render(view: "edit", model: [facturaInstance: facturaInstance])
                 return
@@ -138,7 +176,7 @@ class FacturaController {
         if (version != null) {
             if (facturaInstance.version > version) {
                 facturaInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'factura.label', default: 'Factura')] as Object[],
+                    [message(code: 'factura.label', default: 'Factura')] as Object[],
                           "Another user has updated this Factura while you were editing")
                 render(view: "edit", model: [facturaInstance: facturaInstance])
                 return

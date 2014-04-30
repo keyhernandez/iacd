@@ -1,9 +1,11 @@
 package salias
 
+import javax.servlet.ServletOutputStream
 import org.springframework.dao.DataIntegrityViolationException
 
 class ClaseController {
 
+    def exportService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -15,6 +17,12 @@ class ClaseController {
         [claseInstanceList: Clase.list(params), claseInstanceTotal: Clase.count()]
     }
 
+    def listToAsist(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        
+       
+        [claseInstanceList: Clase.list(params), claseInstanceTotal: Clase.count()]
+    }
     def create() {
         [claseInstance: new Clase(params)]
     }
@@ -31,13 +39,14 @@ class ClaseController {
     }
 
     def show(Long id) {
+    
         def claseInstance = Clase.get(id)
+        
         if (!claseInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'clase.label', default: 'Clase'), id])
             redirect(action: "list")
             return
         }
-
         [claseInstance: claseInstance]
     }
 
@@ -63,7 +72,7 @@ class ClaseController {
         if (version != null) {
             if (claseInstance.version > version) {
                 claseInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'clase.label', default: 'Clase')] as Object[],
+                    [message(code: 'clase.label', default: 'Clase')] as Object[],
                           "Another user has updated this Clase while you were editing")
                 render(view: "edit", model: [claseInstance: claseInstance])
                 return
@@ -99,4 +108,41 @@ class ClaseController {
             redirect(action: "show", id: id)
         }
     }
+    
+    
+    def reporte={
+        
+    params.put("claseid", 12) 
+        chain(controller: "jasper", action: "index", model: [data: Clase.list()], params:params)
+    }
+
+    
+    
+    def generatePdf = {
+    try {
+        //generate or retrieve your XML
+        String xml = thisMethodShouldReturnXml()
+     
+        byte[] bytes = getJasperReport(xml, '/web-app/reports/prueba.jasper')
+     
+        //get the output stream from the common property 'response'
+        ServletOutputStream servletOutputStream = response.outputStream
+ 
+        //set the byte content on the response. This determines what is shown in your browser window.       
+        response.setContentType('application/pdf')
+        response.setContentLength(bytes.length)
+     
+        response.setHeader('Content-disposition', 'inline; filename=prueba.pdf')
+        response.setHeader('Expires', '0');
+        response.setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0');
+        servletOutputStream << bytes
+    }
+    catch(Exception e) {
+        //deal with your exception here
+        e.printStackTrace()
+        //redirect, etc
+    }
+}
+    
+    
 }

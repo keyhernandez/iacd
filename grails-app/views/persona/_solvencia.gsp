@@ -8,21 +8,21 @@
                 <tr>
                     <td colspan="2">
                         ${f?.clase2?.encodeAsHTML()} 
-                        
-                            <section class="ccsform">
-                                <g:link class="btn btn-primary btn-block" controller="factura" action="transferencia" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-random"></span>  Transferir</g:link>
-                                </section>
-                       
-                        </td>
-                        <td >
+
+                        <section class="ccsform">
+                            <g:link class="btn btn-primary btn-block" controller="factura" action="transferencia" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-random"></span>  Transferir</g:link>
+                            </section>
+
+                    </td>
+                    <td >
                         ${Persona.estaSolvente(f?.clase2?.id,personaInstance?.id)}
                     </td>
                     <td> 
-                        
+
                         <section class="ccsform" >
-                                <g:link class="btn btn-primary btn-block" controller="factura" action="create" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-usd"></span> Pagar</g:link>
-                                </section>
-                          
+                            <g:link class="btn btn-primary btn-block" controller="factura" action="create" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-usd"></span> Pagar</g:link>
+                            </section>
+
 
                     </td>
                 </tr>
@@ -65,7 +65,7 @@
                                 <g:formatDate  date="${p.fecha}" />
                             </td>
                             <td>
-                                3000 Bs.
+                                ${p.monto} Bs.
                             </td>
                         </tr>
                     </g:each>
@@ -81,8 +81,8 @@
     </g:if>
 
     <g:else>
-<section class="alert alert-info"><g:message code="persona.facturas.label" default="No posee talleres inscritos" /></section>
-        
+        <section class="alert alert-info"><g:message code="persona.facturas.label" default="No posee talleres inscritos" /></section>
+
         </g:else>
 
 

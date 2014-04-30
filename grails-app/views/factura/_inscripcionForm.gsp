@@ -32,7 +32,8 @@
 		<span class="required-indicator">*</span>
 	</label>
   <div class="col-lg-4">
-	<g:datePicker name="fecha" precision="day"  value="${facturaInstance?.fecha}"  />
+        <p  class="form-control-static" >${new Date().format('dd/MM/yyyy')}</p>
+        <g:hiddenField id="fecha"  name="fecha"   value="${g.formatDate(value:new Date(), format:'dd/MM/yyyy')}"/> 
 </div>
 </div>
   
@@ -42,7 +43,7 @@
 		<span class="required-indicator">*</span>
 	</label>
   <div class="col-lg-4">
-	<g:field name="monto" value="${fieldValue(bean: facturaInstance, field: 'monto')}" required="" class="form-control"/>
+	<g:field name="monto" value="${fieldValue(bean: facturaInstance, field: 'monto')}" required="" class="form-control" value="0" enable="false"/>
 </div>
 </div>
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'descuento', 'error')} required form-group">
