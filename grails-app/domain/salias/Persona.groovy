@@ -22,9 +22,9 @@ class Persona {
         telefonos cascade: "all-delete-orphan"
     }
     static constraints = {
-        correo email: true, nullable: true
+        correo email: true
         plantilla nullable: false,unique: true
-        nombre nullable: true
+       
         cedula(matches:'\\d{1,8}',unique: true)
     }
     

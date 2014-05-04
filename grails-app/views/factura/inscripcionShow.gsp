@@ -79,6 +79,10 @@
 				</g:if>
 			
 			</ol>
+                        <ul class="pager">
+                <li class="previous"><a href="javascript:history.go(-1)">&larr; Atrás</a></li>
+               
+            </ul>
 			
 		</div>
 	</body>

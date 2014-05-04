@@ -8,12 +8,7 @@
 </head>
 <body>
   <a href="#create-taller" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-  <div class="nav" role="navigation">
-    <ul>
-      <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-      <li><g:link class="list" action="list">Listar Talleres</g:link></li>
-    </ul>
-  </div>
+ 
   <div id="create-taller" class="content scaffold-create" role="main">
     <h1><g:message code="default.create.label" args="[entityName]" /></h1>
     

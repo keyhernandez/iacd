@@ -10,7 +10,7 @@
       </button>
 
       <a class="navbar-brand" href="${createLink(uri: '/')}">
-        <img class="logo" src="${resource(plugin: 'kickstart-with-bootstrap', dir:'kickstart/img', file:'logoLosSalias.png')}" alt="${meta(name:'app.name')}" width="24px" height="24px"/> 
+        <img class="logo" src="${resource(dir:'img', file:'logoLosSalias.png')}" alt="${meta(name:'app.name')}" width="24px" height="24px"/> 
         Los Salias
         <small> </small>
       </a>
@@ -28,6 +28,7 @@
           </li>
             <li class="controller"><g:link controller="salon"><span class="glyphicon glyphicon-map-marker"></span> Salones</g:link></li>
           <li class="controller"><g:link controller="precio"><span class="glyphicon glyphicon-usd"></span> Precios</g:link></li>
+          <li class="controller"><g:link controller="descuento"><span class="glyphicon glyphicon-circle-arrow-down"></span> Descuentos</g:link></li>
             <li class="controller"><g:link controller="horario"><span class="glyphicon glyphicon-dashboard"></span> Horarios</g:link></li>
             <li class="controller"><g:link controller="clase"><span class="glyphicon glyphicon-list-alt"></span> Clases</g:link></li>
       <%--  <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">

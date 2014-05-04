@@ -217,6 +217,7 @@ fieldset,
 .fieldcontain label,
 .fieldcontain .property-label {
 /*    color: #666666;*/
+font-weight:bold;
     text-align: right;
     width: 25%;
 }
@@ -757,7 +758,7 @@ a.skip {
 }
 
 
-/*//checkboxBegin*/
+/*//checkboxBegin
 input[type=checkbox] {
     visibility: hidden;
 }
@@ -857,7 +858,7 @@ input[type=checkbox] {
     background: #00bf00;
 }
 
-/*//checkboxEnd*/
+checkboxEnd*/
 
 
 /*//tabla*/

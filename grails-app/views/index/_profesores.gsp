@@ -13,4 +13,3 @@
       </ul>
     </section>
                   
-<p class="right"><img src="${resource(dir: 'images', file: 'salias2.jpg')}" alt="" width="500" height="400"></p>

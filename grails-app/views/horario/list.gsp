@@ -27,7 +27,7 @@
 				<g:each in="${horarioInstanceList}" status="i" var="horarioInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td>${horarioInstance.horaInicio+":"+horarioInstance.minutosInicio+" "+horarioInstance.meridianoInicio} </td>
+						<td><g:link action="show" id="${horarioInstance.id}">${horarioInstance.horaInicio+":"+horarioInstance.minutosInicio+" "+horarioInstance.meridianoInicio} </g:link></td>
 					
 						<td>${horarioInstance.horaFin+":"+horarioInstance.minutosFin+" "+horarioInstance.meridianoFin}</td>
 					

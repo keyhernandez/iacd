@@ -19,11 +19,22 @@
                     </td>
                     <td> 
 
+                        <g:if test="${Persona.estaSolvente(f?.clase2?.id,personaInstance?.id) == 'NO SOLVENTE INSCRIPCION'}">
+                            <section class="ccsform" >
+                                <g:link class="btn btn-primary btn-block" controller="factura" action="inscripcionCreate" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-usd"></span> Pagar</g:link>
+                                </section>
+                        </g:if>
+                        <g:elseif test="${Persona.estaSolvente(f?.clase2?.id,personaInstance?.id) == 'NO SOLVENTE MENSUALIDAD'}">
                         <section class="ccsform" >
-                            <g:link class="btn btn-primary btn-block" controller="factura" action="create" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-usd"></span> Pagar</g:link>
-                            </section>
-
-
+                                <g:link class="btn btn-primary btn-block" controller="factura" action="create" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-usd"></span> Pagar</g:link>
+                                </section>
+                        </g:elseif>
+                        <g:elseif test="${Persona.estaSolvente(f?.clase2?.id,personaInstance?.id) == 'ESTA SOLVENTE'}">
+                        <section class="ccsform" >
+                                <g:link class="btn btn-primary btn-block" controller="factura" action="create" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}" disabled="true"> <span class="glyphicon glyphicon-usd"></span> Pagar</g:link>
+                                </section>
+                        </g:elseif>
+                        
                     </td>
                 </tr>
                 <tr>

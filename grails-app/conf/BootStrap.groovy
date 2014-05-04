@@ -1,4 +1,7 @@
+
 import LosSalias.*
+import salias.Persona
+
 class BootStrap {
 
     
@@ -30,8 +33,12 @@ class BootStrap {
         /* The default password for all user. No need to encode here to avoid double encoding. */
 
         String password = 'admin'
-
-        def user = new SecUser(username: 'admin', password: password, enabled: true).save(flush:true)
+        
+       
+        
+        def persona = new Persona(nombre:'admin',plantilla:'admin',fechaNac:new Date(),correo:'admin@admin.com',tipoPersona:'Empleado',cedula:'12345678').save(flush:true)
+println persona
+        def user = new SecUser(username: 'admin', password: password, enabled: true,person:persona).save(flush:true)
 
         def SecUserSecRole = new  SecUserSecRole(secUser:user,secRole:Role).save(flush:true)
     }

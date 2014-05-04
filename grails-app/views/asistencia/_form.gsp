@@ -29,7 +29,7 @@
 		<span class="required-indicator">*</span>
 	</label>
   <div class="col-lg-3">
-	<g:select id="persona" name="persona.id" from="${salias.Clase.findById(asistenciaInstance?.clase?.id)}" optionKey="id" required="" value="${asistenciaInstance?.persona?.id}" class="form-control"/>
+	<g:select id="persona" name="persona.id" from="${salias.Persona.findById(asistenciaInstance?.persona?.id)}" optionKey="id" required="" value="${asistenciaInstance?.persona?.id}" class="form-control"/>
 </div>
   </div>
 

@@ -17,7 +17,7 @@
 
                 <g:if test="${facturaInstance?.clase2}">
                     <li class="fieldcontain">
-                        <span id="clase2-label" class="property-label"><g:message code="factura.clase2.label" default="Clase2" /></span>
+                        <span id="clase2-label" class="property-label"><g:message code="factura.clase2.label" default="Clase" /></span>
 
                         <span class="property-value" aria-labelledby="clase2-label"><g:link controller="clase" action="show" id="${facturaInstance?.clase2?.id}">${facturaInstance?.clase2?.encodeAsHTML()}</g:link></span>
 
@@ -80,7 +80,7 @@
 
                 <g:if test="${facturaInstance?.persona}">
                     <li class="fieldcontain">
-                        <span id="persona-label" class="property-label"><g:message code="factura.persona.label" default="Persona" /></span>
+                        <span id="persona-label" class="property-label"><g:message code="factura.persona.label" default="Alumno" /></span>
 
                         <span class="property-value" aria-labelledby="persona-label"><g:link controller="persona" action="show" id="${facturaInstance?.persona?.id}">${facturaInstance?.persona?.encodeAsHTML()}</g:link></span>
 
@@ -97,7 +97,10 @@
                 </g:if>
 
             </ol>
-
+ <ul class="pager">
+                <li class="previous"><a href="javascript:history.go(-1)">&larr; Atrás</a></li>
+               
+            </ul>
         </div>
     </body>
 </html>

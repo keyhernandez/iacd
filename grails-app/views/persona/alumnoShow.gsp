@@ -154,7 +154,7 @@
                                                     <td> 
 
                                                     <section class="cssform">
-                                                        <g:link class="btn btn-primary btn-block" controller="Factura" action="inscripcionCreate" params="${[foo:personaInstance?.id,bar:x.id]}">Inscripcion</g:link>
+                                                        <g:link class="btn btn-primary btn-block" controller="Factura" action="inscripcionCreate" params="${[foo:personaInstance?.id,bar:x.id]}">Inscripción</g:link>
                                                         </section>
 
 

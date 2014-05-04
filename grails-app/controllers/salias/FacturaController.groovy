@@ -74,8 +74,9 @@ class FacturaController {
     }
 
     def inscripcionSave() {
-       
+     
         def facturaInstance = new Factura(params)
+        facturaInstance.monto=facturaInstance.monto/10
         if (!facturaInstance.save(flush: true)) {
             render(view: "inscripcionCreate", model: [facturaInstance: facturaInstance])
             return
@@ -226,5 +227,33 @@ class FacturaController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'factura.label', default: 'Factura'), id])
             redirect(action: "show", id: id)
         }
+    }
+    
+    def changeMonto = { 
+        //        def d = (params.monto).tokenize('.')
+        //        def descuento =Descuento.get((params.descuento).toInteger()).porcentaje
+        //        def montoViejo=d[0].toInteger()
+        //        def montoNuevo=montoViejo-(montoViejo*descuento/100)
+        //        [montoNuevo:monto]
+        //        print montoNuevo
+        def b = Factura.get(params.id)
+        b.monto = 500
+        b.save()
+    }
+    
+    def descuentoSelected = {
+   
+        def m=params.monto
+        if (params.descuento!=''){
+            def dcto =  Descuento.get(params.descuento)
+            
+            def des = dcto.porcentaje/100
+          
+            def total = m.toDouble() - (m.toDouble()*des.toDouble())
+      
+        render(text:"<input type='text' id='monto' name='monto' value='${total}' class='form-control' readonly='true'/>", contentType:'text/html')
+        }
+        else
+       render(text:"<input type='text' id='monto' name='monto' value='${params.monto}' class='form-control' readonly='true'/>", contentType:'text/html')
     }
 }

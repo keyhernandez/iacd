@@ -1,5 +1,5 @@
 package LosSalias
-
+import salias.Persona
 class SecUser {
 
 	transient springSecurityService
@@ -10,12 +10,16 @@ class SecUser {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-
+        static belongsTo = [person:Persona]
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+                person nullable:true
 	}
 
+    String toString(){
+        return ${username}
+    }
 	static mapping = {
 		password column: '`password`'
 	}

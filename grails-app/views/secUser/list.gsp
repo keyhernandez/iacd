@@ -12,14 +12,16 @@
 		
 		<div id="list-secUser" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			
+			<g:if test="${flash.message}">
+			<div class="message" role="status">${flash.message}</div>
+			</g:if>
 			<table>
 				<thead>
 					<tr>
 					
 						<g:sortableColumn property="username" title="${message(code: 'secUser.username.label', default: 'Username')}" />
 					
-						<g:sortableColumn property="password" title="${message(code: 'secUser.password.label', default: 'Password')}" />
+						
 					
 						<g:sortableColumn property="accountExpired" title="${message(code: 'secUser.accountExpired.label', default: 'Account Expired')}" />
 					
@@ -37,7 +39,7 @@
 					
 						<td><g:link action="show" id="${secUserInstance.id}">${fieldValue(bean: secUserInstance, field: "username")}</g:link></td>
 					
-						<td>${fieldValue(bean: secUserInstance, field: "password")}</td>
+						
 					
 						<td><g:formatBoolean boolean="${secUserInstance.accountExpired}" /></td>
 					

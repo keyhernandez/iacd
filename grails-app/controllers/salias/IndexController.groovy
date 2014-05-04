@@ -29,4 +29,8 @@ class IndexController {
         def b = params.b.toInteger()
         render "${a} + ${b} = ${a+b}"
     }
+    
+    def index(){
+        
+    }
 }
