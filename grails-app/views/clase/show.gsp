@@ -126,6 +126,7 @@
             
             <g:jasperReport jasper="prueba" format="PDF" name="Planilla de Asistencia" >
                 <input type="hidden" name="claseid" value="${claseInstance?.id}" />
+                <input type="hidden" name="imagesPath" value="web-app/reports/salias1.jpeg" />
             </g:jasperReport>
             
           

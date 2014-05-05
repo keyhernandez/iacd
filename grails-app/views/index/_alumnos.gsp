@@ -12,4 +12,6 @@
         <li><a class="list" href="${createLink(controller:'Persona',action:'alumnoList')}">Ver Detalle de Alumno</a></li>
       </ul>
     </section>
-                    
+    
+ 
+      

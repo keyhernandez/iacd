@@ -2333,6 +2333,7 @@ pre code {
 .row {
   margin-right: -15px;
   margin-left: -15px;
+  text-align: center;
 }
 
 .row:before,
@@ -6797,10 +6798,11 @@ a.list-group-item.active > .badge,
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
+          text-align:center;
 }
 
 .thumbnail > img {
-  display: block;
+  display: inline-block;
   height: auto;
   max-width: 100%;
   margin-right: auto;

@@ -85,27 +85,58 @@
     </head>
     <body>
         
-
  
-        
-        <ul class="nav nav-tabs nav-tabs">
+  <h1>Bienvenido</h1>
+  
+       <center>
+  <div class="row">
+  <div class=" col-xs-3">
+    <div class="thumbnail">
+      <img src="${resource(dir: 'images', file: 'copa_aletas.jpg')}" alt="My Image" />
+      <div class="caption">
+        <h3>Alumnos</h3>
+          <p><a href="${createLink(controller:'persona',action: 'alumnoCreate')}" class="btn btn-primary" role="button">Registrar</a> 
+             <a href="${createLink(controller:'persona',action: 'alumnoList')}" class="btn btn-default" role="button">Consultar</a></p>
+      
+      </div>
+    </div>
+  </div>
 
-            <li class="active"><a href="#tab1" data-toggle="tab"><strong>Alumnos</strong></a></li>
+  <div class="col-xs-3 span8 offset2">
+    <div class="thumbnail">
+      <img src="${resource(dir: 'images', file: 'salias3.jpg')}" alt="My Image" />
+      <div class="caption">
+        <h3>Profesores</h3>
+        <p><a href="${createLink(controller:'persona',action: 'profesorCreate')}" class="btn btn-primary" role="button">Registrar</a> 
+             <a href="${createLink(controller:'persona',action: 'profesorList')}" class="btn btn-default" role="button">Consultar</a></p>
+      
+      </div>
+    </div>
+  </div>
 
-            <li><a href="#tab2" data-toggle="tab"><strong>Profesores</strong></a></li>
+  <div class="col-xs-3">
+    <div class="thumbnail">
+      <img src="${resource(dir: 'images', file: 'salias2.jpg')}" alt="" />
+      <div class="caption">
+        <h3>Talleres</h3>
+         <p><a href="${createLink(controller:'taller',action: 'create')}" class="btn btn-primary" role="button">Registrar</a> 
+             <a href="${createLink(controller:'taller',action: 'list')}" class="btn btn-default" role="button">Consultar</a></p>
+      
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-3">
+    <div class="thumbnail">
+      <img src="${resource(dir: 'images', file: 'salias5.jpg')}" alt="" />
+      <div class="caption">
+        <h3>Clases</h3>
+         <p><a href="${createLink(controller:'clase',action: 'create')}" class="btn btn-primary" role="button">Registrar</a> 
+             <a href="${createLink(controller:'clase',action: 'list')}" class="btn btn-default" role="button">Consultar</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <li><a href="#tab3" data-toggle="tab"><strong>Talleres</strong></a></li>
-
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="tab1">  <g:render template="/index/alumnos" /></div>
-            <div class="tab-pane" id="tab2"> <g:render template="/index/profesores" /></div>
-            <div class="tab-pane" id="tab3"><g:render template="/index/talleres" /></div>
-        </div>
-
-     
-
-
-
+</center>
     </body>
 </html>

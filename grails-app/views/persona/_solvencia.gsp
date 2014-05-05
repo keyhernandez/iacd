@@ -1,6 +1,6 @@
 <%@ page import="salias.Persona" %>
 <%@ page import="salias.Clase" %>  
-<section style="width: 1000px; height: 500px; overflow-y: scroll;">
+<section style="width: 1100px; height: 500px; overflow-y: scroll;">
     <g:if test="${Persona.talleresInscritos(personaInstance?.id)}">
         <g:each in="${Persona.talleresInscritos(personaInstance.id)}" var="f">
             <br>
