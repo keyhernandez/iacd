@@ -13,17 +13,20 @@
             <div id="show-persona" class="content scaffold-show" role="main">
                 <h1>${personaInstance?.nombre}</h1>
            
-            <div id="container1">
-<!--Pestaña 1 activa por defecto-->
-                <input id="tab-1" type="radio" name="tab-group" checked="checked" />
-                <label for="tab-1">Datos Personales</label>
-                <!--Pestaña 2 inactiva por defecto-->
-                <input id="tab-2" type="radio" name="tab-group" />
-                <label for="tab-2">Talleres Dictados</label>
-      <!--Contenido a mostrar/ocultar-->
-                <div id="content1">
-                 <!--Contenido de la Pestaña 1-->
-                    <div id="content-1">
+                
+                <ul class="nav nav-tabs nav-tabs">
+
+                <li class="active"><a href="#tab1" data-toggle="tab"><strong>Datos Personales</strong></a></li>
+
+                <li><a href="#tab2" data-toggle="tab"><strong>Talleres Dictados</strong></a></li>
+
+              
+            </ul>
+                
+                
+                
+           <div class="tab-content">
+                <div class="tab-pane active" id="tab1"> 
                         <table style="width:50em">
 
                             <g:if test="${personaInstance?.cedula}">
@@ -122,9 +125,9 @@
 
                         </table>
                     </div>
-                  <div id="content-2">
+                  <div class="tab-pane" id="tab2">
                   <g:if test="${personaInstance?.clases}">
-				 <section style="width: 1000px; height: 500px; overflow-y: scroll;">
+				 <section style="width: 1100px; height: 500px; overflow-y: scroll;">
 
 
     <g:if test="${Persona.talleresInscritos(personaInstance?.id)}">
@@ -139,7 +142,7 @@
 
                 </tr>
 
-                <fieldset class="buttons">
+               
                     <tr>  <g:each in="${Persona.asistenciasPorTaller(f.id,personaInstance.id)}" var="ff" status="j" >
                             <g:if test="${(j %4) !=0}">
                                 <td>${ff}</td>

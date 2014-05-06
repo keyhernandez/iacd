@@ -10,21 +10,22 @@
 		
 			<%-- Note: Links to pages without controller are redirected in conf/UrlMappings.groovy --%>
 			<li class="">
-				<a href="${createLink(uri: '/about')}">
+				<a href="${createLink(controller:'index',action:'about')}">
 					<i class="icon-info-sign"></i>
 					<g:message code="default.about.label"/>
 				</a>
 			</li>
-			<li class="">
+			<%--<li class="">
 				<a href="http://wordpress.com/signup/">
 					<i class="icon-align-justify"></i>
 					<i><g:message code="default.blog.label"/></i>
 				</a>
 			</li>
+--%>
 			<li class="">
-				<a href="${createLink(uri: '/contact')}">
+				<a href="${createLink(controller:'index',action:'about')}">
 					<i class="icon-envelope"></i>
-					<g:message code="default.contact.label"/>
+					Contacto
 				</a>
 			</li>
 						

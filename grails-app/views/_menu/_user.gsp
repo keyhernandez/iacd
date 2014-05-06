@@ -1,5 +1,7 @@
 <%--<ul class="nav pull-right">--%>
-	<li class="dropdown">
+<%@ page import="LosSalias.SecUser" %>
+<%@ page import="salias.Persona" %>
+<li class="dropdown">
 	
 <sec:ifNotLoggedIn>
 
@@ -38,15 +40,15 @@
 		</a>
 		<ul class="dropdown-menu" role="menu">
 			<!-- TODO: Only show menu items based on permissions -->
-			<li class=""><a href="${createLink(uri: '/')}">
+			<li class=""><a href="${createLink(controller:'SecUser',action:'show',id:SecUser.findByUsername(sec.loggedInUserInfo(field:'username')).id)}">
 				<i class="icon-user"></i>
-				<g:message code="user.show.label"/>
+				Perfil
 			</a></li>
-			<li class=""><a href="${createLink(uri: '/')}">
+			<%--<li class=""><a href="${createLink(uri: '/')}">
 				<i class="icon-cogs"></i>
 				<g:message code="user.settings.change.label"/>
 			</a></li>
-			
+			--%>
 			<li class="divider"></li>
 			<li class=""><a href="${createLink(controller:'logout',action:'index')}">
 				<i class="icon-off"></i>

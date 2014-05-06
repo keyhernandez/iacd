@@ -35,25 +35,31 @@
 	<g:datePicker name="fecha" precision="day"  value="${facturaInstance?.fecha}"  />
 </div>
 </div>
-  
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'monto', 'error')} required form-group">
-	<label for="monto" class="col-lg-4 control-label">
-		<g:message code="factura.monto.label" default="Monto" />
-		<span class="required-indicator">*</span>
-	</label>
-  <div class="col-lg-4">
-	<g:field name="monto" value="${fieldValue(bean: facturaInstance, field: 'monto')}" required="" class="form-control"/>
-</div>
-</div>
+
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'descuento', 'error')} required form-group">
 	<label for="descuento" class="col-lg-4 control-label">
 		<g:message code="factura.descuento.label" default="Descuento" />
 		<span class="required-indicator">*</span>
 	</label>
   <div class="col-lg-4">
-	<g:field name="descuento" type="number" value="${facturaInstance.descuento}" required="" class="form-control"/>
+<g:select onchange="${remoteFunction(controller:'factura', action:'descuentoSelected',update:'mont', params: '\'monto='+facturaInstance.clase2.precio+'&descuento=\'+ this.value' )}" id="descuento" name="descuento.id" from="${salias.Descuento.list()}" 
+    optionKey="id" required="" value="${facturaInstance?.descuento?.id}" class="form-control" noSelection="${['':'Seleccione']}"/>
+    </div>
 </div>
+
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'monto', 'error')} required form-group">
+	<label for="monto" class="col-lg-4 control-label">
+		<g:message code="factura.monto.label" default="Monto a Pagar" />
+		<span class="required-indicator">*</span>
+	</label>
+  <div class="col-lg-4">
+	 <div name="mont" id="mont" >
+        <input type='text' id='monto' name='monto' value='${facturaInstance?.monto}' class='form-control' readonly='true'/>
+        </div>
+  </div>
 </div>
+
+
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'grupo', 'error')} form-group">
 	<label for="grupo" class="col-lg-4 control-label">
 		<g:message code="factura.grupo.label" default="Grupo" />

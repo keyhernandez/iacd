@@ -2,7 +2,7 @@ package salias
 
 class IndexController {
 
-    def sideMenu() { }
+    def about() { }
 
     def renderString() {
         render "Hello, this is a rendered string."

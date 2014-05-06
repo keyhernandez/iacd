@@ -36,21 +36,6 @@
         <g:hiddenField id="fecha"  name="fecha"   value="${g.formatDate(value:new Date(), format:'dd/MM/yyyy')}"/> 
     </div>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'monto', 'error')} required form-group">
-    <label for="monto" class="col-lg-4 control-label">
-        <g:message code="factura.monto.label" default="Monto" />
-        <span class="required-indicator">*</span>
-    </label>
-    <div class="col-lg-4">
-
-        <div name="mont" id="mont" >
-        <input type='text' id='monto' name='monto' value='${facturaInstance?.monto}' class='form-control' readonly='true'/>
-        </div>
-       
-    </div>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'descuento', 'error')} required form-group">
     <label for="descuento" class="col-lg-4 control-label">
         <g:message code="factura.descuento.label" default="Descuento" />
@@ -62,6 +47,21 @@
     optionKey="id" required="" value="${facturaInstance?.descuento?.id}" class="form-control" noSelection="${['':'Seleccione']}"/>
     </div>
 </div>
+<div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'monto', 'error')} required form-group">
+    <label for="monto" class="col-lg-4 control-label">
+        <g:message code="factura.monto.label" default="Monto a Pagar" />
+        <span class="required-indicator">*</span>
+    </label>
+    <div class="col-lg-4">
+
+        <div name="mont" id="mont" >
+        <input type='text' id='monto' name='monto' value='${facturaInstance?.monto}' class='form-control' readonly='true'/>
+        </div>
+       
+    </div>
+</div>
+
+
 
 
 <div class="fieldcontain ${hasErrors(bean: facturaInstance, field: 'grupo', 'error')} form-group">

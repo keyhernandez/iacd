@@ -2,7 +2,9 @@ package salias
 
 import javax.servlet.ServletOutputStream
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.security.access.annotation.Secured
 
+@Secured(['ROLE_ADMIN','ROLE_EMPLEADO'])
 class ClaseController {
 
     def exportService

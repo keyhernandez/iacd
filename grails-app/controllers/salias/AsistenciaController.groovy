@@ -3,7 +3,7 @@ package salias
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.security.access.annotation.Secured
 
-@Secured(['ROLE_ADMIN','ROLE_EMPLEADO'])
+@Secured(['ROLE_ADMIN','ROLE_EMPLEADO','ROLE_RECEPCION'])
 class AsistenciaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

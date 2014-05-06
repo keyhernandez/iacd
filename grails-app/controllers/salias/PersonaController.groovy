@@ -3,7 +3,9 @@ package salias
 import org.springframework.dao.DataIntegrityViolationException
 import org.compass.core.engine.SearchEngineQueryParseException
 import grails.converters.JSON
+import org.springframework.security.access.annotation.Secured
 
+@Secured(['ROLE_ADMIN','ROLE_EMPLEADO','ROLE_RECEPCION'])
 class PersonaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

@@ -27,12 +27,12 @@ class BootStrap {
     private void createData() {
 
         def Role = new SecRole(authority: 'ROLE_ADMIN').save(flush:true)
-
- 
+         def Role1 = new SecRole(authority: 'ROLE_EMPLEADO').save(flush:true)
+ def Role2 = new SecRole(authority: 'ROLE_RECEPCION').save(flush:true)
 
         /* The default password for all user. No need to encode here to avoid double encoding. */
 
-        String password = 'admin'
+        String password = 'adminiacd'
         
        
         

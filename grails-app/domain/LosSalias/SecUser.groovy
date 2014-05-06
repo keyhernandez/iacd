@@ -18,7 +18,7 @@ class SecUser {
 	}
 
     String toString(){
-        return ${username}
+        return "${username}"
     }
 	static mapping = {
 		password column: '`password`'

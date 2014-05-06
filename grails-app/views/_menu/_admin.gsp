@@ -1,4 +1,5 @@
 <%--<ul class="nav pull-right">--%>
+<sec:ifAnyGranted roles="ROLE_ADMIN">
 <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="icon-wrench"></i>
@@ -41,3 +42,4 @@
     </ul>
 </li>
 <%--</ul>--%>
+</sec:ifAnyGranted>

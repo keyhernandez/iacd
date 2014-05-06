@@ -2,7 +2,9 @@ package salias
 
 import org.springframework.dao.DataIntegrityViolationException
 import org.compass.core.engine.SearchEngineQueryParseException
+import org.springframework.security.access.annotation.Secured
 
+@Secured(['ROLE_ADMIN','ROLE_EMPLEADO','ROLE_RECEPCION'])
 class FacturaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -87,8 +89,9 @@ class FacturaController {
     }
     
     def save() {
-        println params
+        
         def facturaInstance = new Factura(params)
+         facturaInstance.monto=facturaInstance.monto/10
         if (!facturaInstance.save(flush: true)) {
             render(view: "create", model: [facturaInstance: facturaInstance])
             return
