@@ -1,5 +1,8 @@
 <footer class="footer">
+    
 	<div class="container">
+      Desarrollado por  Keyla Hernández keyhernandez1@gmail.com, Kristian Cortés kristcort@gmail.com
+            <%--
 		<div class="row">
 			<div class="col-lg-2">
 				<h4>Product</h4>
@@ -41,7 +44,7 @@
 			</div>
 				</div>
 		
-	
+	--%>
 		<p class="pull-right"><a href="#">Back to top</a></p>
 	</div>
 </footer>

@@ -15,16 +15,7 @@
 			
 			<ol class="property-list persona">
 			
-				<g:if test="${personaInstance?.asistencias}">
-				<li class="fieldcontain">
-					<span id="asistencias-label" class="property-label"><g:message code="persona.asistencias.label" default="Asistencias" /></span>
-					
-						<g:each in="${personaInstance.asistencias}" var="a">
-						<span class="property-value" aria-labelledby="asistencias-label"><g:link controller="asistencia" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
+		
 			
 				<g:if test="${personaInstance?.cedula}">
 				<li class="fieldcontain">
@@ -34,17 +25,7 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${personaInstance?.clases}">
-				<li class="fieldcontain">
-					<span id="clases-label" class="property-label"><g:message code="persona.clases.label" default="Clases" /></span>
-					
-						<g:each in="${personaInstance.clases}" var="c">
-						<span class="property-value" aria-labelledby="clases-label"><g:link controller="clase" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
+		
 			
 				<g:if test="${personaInstance?.correo}">
 				<li class="fieldcontain">
@@ -55,25 +36,9 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${personaInstance?.tipoPersona}">
-				<li class="fieldcontain">
-					<span id="tipoPersona-label" class="property-label"><g:message code="persona.tipoPersona.label" default="Es Empleado" /></span>
-					
-						<span class="property-value" aria-labelledby="tipoPersona-label"><g:formatBoolean boolean="${personaInstance?.tipoPersona}" /></span>
-					
-				</li>
-				</g:if>
+		
 			
-				<g:if test="${personaInstance?.facturas}">
-				<li class="fieldcontain">
-					<span id="facturas-label" class="property-label"><g:message code="persona.facturas.label" default="Facturas" /></span>
-					
-						<g:each in="${personaInstance.facturas}" var="f">
-						<span class="property-value" aria-labelledby="facturas-label"><g:link controller="factura" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
+
 			
 				<g:if test="${personaInstance?.fechaNac}">
 				<li class="fieldcontain">
@@ -124,13 +89,7 @@
 				</g:if>
 			
 			</ol>
-			<g:form>
-				<fieldset class="buttons">
-					<g:hiddenField name="id" value="${personaInstance?.id}" />
-					<g:link class="edit" action="empleadoEdit" id="${personaInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
+			
 		</div>
 	</body>
 </html>

@@ -17,7 +17,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log 'error' // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log 'warn' // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
@@ -62,5 +62,7 @@ runtime: 'postgresql:postgresql:9.2-1003.jdbc4'
     //    compile ':searchable-0.6.6' 
         compile ":spring-security-core:1.2.7.3"
         compile ":ajaxdependancyselection:0.23"
+        compile ":kickstart-with-bootstrap:0.9.9"
+   compile ":jasper:1.8.0"
     }
 }

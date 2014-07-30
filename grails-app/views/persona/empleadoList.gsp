@@ -17,15 +17,14 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="cedula" title="${message(code: 'persona.cedula.label', default: 'Cedula')}" />
+						<g:sortableColumn property="cedula" title="${message(code: 'persona.cedula.label', default: 'Cédula')}" />
 					
+                                                
+						<g:sortableColumn property="nombre" title="${message(code: 'persona.nombre.label', default: 'Nombre')}" />
 						<g:sortableColumn property="correo" title="${message(code: 'persona.correo.label', default: 'Correo')}" />
 					
-						<g:sortableColumn property="tipoPersona" title="${message(code: 'persona.tipoPersona.label', default: 'Es Empleado')}" />
+						<g:sortableColumn property="fechaNac" title="${message(code: 'persona.fechaNac.label', default: 'Fecha Nacimiento')}" />
 					
-						<g:sortableColumn property="fechaNac" title="${message(code: 'persona.fechaNac.label', default: 'Fecha Nac')}" />
-					
-						<g:sortableColumn property="nombre" title="${message(code: 'persona.nombre.label', default: 'Nombre')}" />
 					
 					</tr>
 				</thead>
@@ -35,13 +34,12 @@
 					
 						<td><g:link action="empleadoShow" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "cedula")}</g:link></td>
 					
+                                                
+						<td>${fieldValue(bean: personaInstance, field: "nombre")}</td>
+					
 						<td>${fieldValue(bean: personaInstance, field: "correo")}</td>
 					
-						<td><g:formatBoolean boolean="${personaInstance.tipoPersona}" /></td>
-					
 						<td><g:formatDate date="${personaInstance.fechaNac}" /></td>
-					
-						<td>${fieldValue(bean: personaInstance, field: "nombre")}</td>
 					
 					</tr>
 				</g:each>

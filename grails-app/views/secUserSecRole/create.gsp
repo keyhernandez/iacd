@@ -8,14 +8,9 @@
 	</head>
 	<body>
 		<a href="#create-secUserSecRole" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		
 		<div id="create-secUserSecRole" class="content scaffold-create" role="main">
-			<h1>Crear Usuario</h1>
+			<h1>Asignar rol a Usuario</h1>
 			
 			<g:hasErrors bean="${secUserSecRoleInstance}">
 			<ul class="errors" role="alert">
@@ -24,13 +19,15 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form action="save" >
+			<g:form action="save" class="form-horizontal" role="form">
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
+				<div class="form-group">
+        <div class="col-lg-offset-4 col-lg-6">
+          <g:submitButton name="create" class="btn btn-default btn-success" value="${message(code: 'default.button.create.label', default: 'Create')}" />	
+        </div>
+      </div>
 			</g:form>
 		</div>
 	</body>

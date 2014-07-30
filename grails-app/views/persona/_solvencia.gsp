@@ -7,8 +7,8 @@
             <table  class="tablaSolvencia">  
                 <tr>
                     <td colspan="2">
-                        ${f?.clase2?.encodeAsHTML()} 
-
+                       
+ <g:link  controller="factura" action="show" id="${f?.id}">  ${f?.clase2?.encodeAsHTML()} </g:link>
                         <section class="ccsform">
                             <g:link class="btn btn-primary btn-block" controller="factura" action="transferencia" params="${[foo:personaInstance?.id,bar:f?.clase2?.id]}"> <span class="glyphicon glyphicon-random"></span>  Transferir</g:link>
                             </section>

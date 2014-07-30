@@ -12,7 +12,11 @@
 
         <div id="list-clase" class="content scaffold-list" role="main">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <g:jasperReport jasper="reporte2" format="PDF" name="Estatus de Solvencia" >
 
+                <input type="hidden" name="imagesPath" value="web-app/reports/salias1.jpeg" />
+            </g:jasperReport>
+            </br>
             <table>
                 <thead>
                     <tr>
@@ -20,20 +24,20 @@
                         <g:sortableColumn property="taller" title="${message(code: 'clase.taller.label', default: 'Taller')}" />
 
                         <th><g:message code="clase.persona.label" default="Profesor" /></th>
-                        
-                        <g:sortableColumn property="fechaInicio" title="${message(code: 'clase.fechaInicio.label', default: 'Fecha Inicio')}" />
-                        
-                        <g:sortableColumn property="fechaFin" title="${message(code: 'clase.fechaFin.label', default: 'Fecha Fin')}" />
 
-                        
+                            <g:sortableColumn property="fechaInicio" title="${message(code: 'clase.fechaInicio.label', default: 'Fecha Inicio')}" />
+
+                            <g:sortableColumn property="fechaFin" title="${message(code: 'clase.fechaFin.label', default: 'Fecha Fin')}" />
+
+
 
                         <th><g:message code="clase.horario.label" default="Horario" /></th>
 
 
 
-                        
 
-                        
+
+
 
                     </tr>
                 </thead>
@@ -42,13 +46,13 @@
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                             <td><g:link action="show" id="${claseInstance.id}">${fieldValue(bean: claseInstance, field: "taller")}</g:link></td>	
-                            
-                               <td>${fieldValue(bean: claseInstance, field: "persona")}</td>
-                            <td><g:formatDate date="${claseInstance.fechaInicio}" /></td>
-                            
-                               <td>${fieldValue(bean: claseInstance, field: "fechaFin")}</td>
 
-                            
+                            <td>${fieldValue(bean: claseInstance, field: "persona")}</td>
+                            <td><g:formatDate date="${claseInstance.fechaInicio}" /></td>
+
+                            <td>${fieldValue(bean: claseInstance, field: "fechaFin")}</td>
+
+
 
                             <td>${fieldValue(bean: claseInstance, field: "horario")}</td>
 
@@ -61,7 +65,7 @@
                 <g:paginate total="${claseInstanceTotal}" />
             </div>
 
-           
+
         </div>
     </body>
 </html>

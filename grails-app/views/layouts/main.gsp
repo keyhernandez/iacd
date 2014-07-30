@@ -49,6 +49,6 @@
 <g:javascript library="application"/>
 
 <r:layoutResources />
-
+<g:render template="/layouts/footer"/>
 </body>
 </html>

@@ -13,48 +13,14 @@ class FacturaController {
     def index() {
         redirect(action: "list", params: params)
     }
+    
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [facturaInstanceList: Factura.list(params), facturaInstanceTotal: Factura.count()]
-    }
+//    def list(Integer max) {
+//        params.max = Math.min(max ?: 10, 100)
+//        [facturaInstanceList: Factura.list(params), facturaInstanceTotal: Factura.count()]
+//    }
 
-    def listByClass(Integer max,Long id) {
-        println params
-        params.max = Math.min(max ?: 10, 100)
-        def clase=Clase.get(id)
-        def inscritos = Factura.findAllByClase2(clase)
-        
-        println params
-        println inscritos
-        def fecha = new Date()
-        params.sort = "nombre"
-        params.order = "asc"
-        params.max = Math.min(max ?: 10, 100)
-        if(!params.max) params.max = 10
-        if(params?.format && params.format != "html"){
-            response.contentType = grailsApplication.config.grails.mime.types[params.format]
-            response.setHeader("Content-disposition", "attachment; filename=asistencia${fecha.format('dd-MM-yyyy')}.${params.extension}")
-
-            List fields = ["clase", "alumno","solvencia"]
-            Map labels = ["clase2":"Clase", "persona":"Alumno","solvencia":"Solvencia"]
-
-            // Formatter closure
-            def upperCase = { domain, value ->
-                return value.toUpperCase()
-            }
-
-            Map formatters = [nombre: upperCase]		
-            Map parameters = [title: "IACD. Asistencia", "column.widths": [0.3, 0.2, 0.3]]
-                    
-            // Empresa.list(sort:'nombre',order:'asc')
-            exportService.export(params.format, response.outputStream, inscritos, fields, labels, formatters, parameters)
-        }
-       
-        
-        
-        [facturaInstanceList: inscritos, facturaInstanceTotal: inscritos.size(),claseInstance:clase]
-    }
+    
     def create() {
         def alumno = Persona.get(params.foo)
         def clase= Clase.get(params.bar)

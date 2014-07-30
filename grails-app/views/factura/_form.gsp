@@ -42,7 +42,7 @@
 		<span class="required-indicator">*</span>
 	</label>
   <div class="col-lg-4">
-<g:select onchange="${remoteFunction(controller:'factura', action:'descuentoSelected',update:'mont', params: '\'monto='+facturaInstance.clase2.precio+'&descuento=\'+ this.value' )}" id="descuento" name="descuento.id" from="${salias.Descuento.list()}" 
+<g:select onchange="${remoteFunction(controller:'factura', action:'descuentoSelected',update:'mont', params: '\'monto='+facturaInstance.clase2.mensualidad+'&descuento=\'+ this.value' )}" id="descuento" name="descuento.id" from="${salias.Descuento.list()}" 
     optionKey="id" required="" value="${facturaInstance?.descuento?.id}" class="form-control" noSelection="${['':'Seleccione']}"/>
     </div>
 </div>

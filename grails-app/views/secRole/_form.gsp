@@ -2,11 +2,13 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: secRoleInstance, field: 'authority', 'error')} required">
-	<label for="authority">
-		<g:message code="secRole.authority.label" default="Authority" />
+<div class="fieldcontain ${hasErrors(bean: secRoleInstance, field: 'authority', 'error')} required form-group">
+	<label for="authority" class="col-lg-4 control-label">
+		<g:message code="secRole.authority.label" default="Nombre" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="authority" required="" value="${secRoleInstance?.authority}"/>
+        <div class="col-lg-3">
+	<g:textField name="authority" required="" value="${secRoleInstance?.authority}" class="form-control"/>
+</div>
 </div>
 
